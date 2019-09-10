@@ -8,13 +8,13 @@
     </saved-by-versions>
     <referenced-types>
       <type name="Email"/>
-      <type name="EWS"/>
+      <type name="ExchangeWebServices"/>
     </referenced-types>
     <referenced-snippets/>
     <triggers/>
     <typed-variables>
       <typed-variable name="Email" type-name="Email"/>
-      <typed-variable name="EWS" type-name="EWS"/>
+      <typed-variable name="EWS" type-name="ExchangeWebServices"/>
     </typed-variables>
     <global-variables/>
     <parameters/>
@@ -53,10 +53,10 @@
       <property name="name" class="String">EWS</property>
       <property name="initialAssignment" class="InitialVariableAssignment">
         <property name="type" class="TypeReference" serializationversion="0">
-          <property name="typeName" class="String">EWS</property>
+          <property name="typeName" class="String">ExchangeWebServices</property>
         </property>
         <property name="assignments" class="AttributeAssignments">
-          <property name="SOAP" class="AttributeAssignment">
+          <property name="Request" class="AttributeAssignment">
             <property name="attributeValue" class="String">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;&#13;
   &lt;soap:Header&gt;&#13;
     &lt;t:RequestServerVersion Version="Exchange2010_SP2"/&gt;&#13;
@@ -146,7 +146,7 @@
         <property name="name" class="String">Open EWS Message</property>
         <property name="stepAction" class="OpenVariable">
           <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">EWS.SOAP</property>
+            <property name="name" class="String">EWS.Request</property>
           </property>
         </property>
         <property name="elementFinders" class="ElementFinders"/>
@@ -538,15 +538,17 @@
         <property name="name" class="String">EWS - Send Email</property>
         <property name="stepAction" class="CallSOAPWebService" serializationversion="1">
           <property name="webserviceInvoker" class="kapow.robot.plugin.common.stateprocessor.callwebservice3.ManualSOAPRequestProvider">
-            <property name="webServiceURLExpression" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-              <property name="value" class="String">https://mail2.kofax.com/ews/exchange.asmx</property>
+            <property name="webServiceURLExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">EWS.Uri</property>
+              </property>
             </property>
             <property name="sOAPActionExpression" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
               <property name="value" class="String">FindFolders</property>
             </property>
             <property name="sOAPRequestProvider" class="kapow.robot.plugin.common.support.xml.provider.VariableValueXMLProvider" serializationversion="1">
               <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">EWS.SOAP</property>
+                <property name="name" class="String">EWS.Request</property>
               </property>
             </property>
             <property name="sOAPVersion" class="String">SOAP 1.2</property>
