@@ -13,7 +13,7 @@
     <referenced-snippets/>
     <triggers/>
     <typed-variables>
-      <typed-variable name="OutboundEmail" type-name="Email"/>
+      <typed-variable name="Email" type-name="Email"/>
       <typed-variable name="EWS" type-name="EWS"/>
     </typed-variables>
     <global-variables/>
@@ -25,52 +25,7 @@
   </prologue>
   <property name="variables" class="Variables">
     <object class="Variable" serializationversion="1">
-      <property name="name" class="String">out</property>
-      <property name="initialAssignment" class="InitialVariableAssignment">
-        <property name="type" class="SimpleTypeReference">
-          <property name="simpleTypeId" class="Integer">13</property>
-        </property>
-      </property>
-    </object>
-    <object class="Variable" serializationversion="1">
-      <property name="name" class="String">SOAP_Body</property>
-      <property name="initialAssignment" class="InitialVariableAssignment">
-        <property name="type" class="SimpleTypeReference">
-          <property name="simpleTypeId" class="Integer">151</property>
-        </property>
-        <property name="assignments" class="AttributeAssignments">
-          <property name="value" class="AttributeAssignment">
-            <property name="attributeValue" class="String">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;&#13;
-  &lt;soap:Header&gt;&#13;
-    &lt;t:RequestServerVersion Version="Exchange2010_SP2"/&gt;&#13;
-  &lt;/soap:Header&gt;&#13;
-  &lt;soap:Body&gt;&#13;
-    &lt;m:CreateItem MessageDisposition="SendAndSaveCopy"&gt;&#13;
-      &lt;m:SavedItemFolderId&gt;&#13;
-        &lt;t:DistinguishedFolderId Id="sentitems"/&gt;&#13;
-      &lt;/m:SavedItemFolderId&gt;&#13;
-      &lt;m:Items&gt;&#13;
-        &lt;t:Message&gt;&#13;
-          &lt;t:Subject&gt;****SUBJECT****&lt;/t:Subject&gt;&#13;
-          &lt;t:Body BodyType="HTML"&gt;****BODY****&lt;/t:Body&gt;&#13;
-          &lt;t:ToRecipients&gt;&#13;
-            &lt;t:Mailbox&gt;&#13;
-              &lt;t:EmailAddress&gt;****TO*****&lt;/t:EmailAddress&gt;&#13;
-            &lt;/t:Mailbox&gt;&#13;
-          &lt;/t:ToRecipients&gt;&#13;
-        &lt;/t:Message&gt;&#13;
-      &lt;/m:Items&gt;&#13;
-    &lt;/m:CreateItem&gt;&#13;
-  &lt;/soap:Body&gt;&#13;
-&lt;/soap:Envelope&gt;</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" class="java.lang.Class">kapow.robot.plugin.common.domain.XML2AttributeType</property>
-          </property>
-        </property>
-      </property>
-    </object>
-    <object class="Variable" serializationversion="1">
-      <property name="name" class="String">OutboundEmail</property>
+      <property name="name" class="String">Email</property>
       <property name="initialAssignment" class="InitialVariableAssignment">
         <property name="type" class="TypeReference" serializationversion="0">
           <property name="typeName" class="String">Email</property>
@@ -101,6 +56,33 @@
           <property name="typeName" class="String">EWS</property>
         </property>
         <property name="assignments" class="AttributeAssignments">
+          <property name="SOAP" class="AttributeAssignment">
+            <property name="attributeValue" class="String">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;&#13;
+  &lt;soap:Header&gt;&#13;
+    &lt;t:RequestServerVersion Version="Exchange2010_SP2"/&gt;&#13;
+  &lt;/soap:Header&gt;&#13;
+  &lt;soap:Body&gt;&#13;
+    &lt;m:CreateItem MessageDisposition="SendAndSaveCopy"&gt;&#13;
+      &lt;m:SavedItemFolderId&gt;&#13;
+        &lt;t:DistinguishedFolderId Id="sentitems"/&gt;&#13;
+      &lt;/m:SavedItemFolderId&gt;&#13;
+      &lt;m:Items&gt;&#13;
+        &lt;t:Message&gt;&#13;
+          &lt;t:Subject&gt;****SUBJECT****&lt;/t:Subject&gt;&#13;
+          &lt;t:Body BodyType="HTML"&gt;****BODY****&lt;/t:Body&gt;&#13;
+          &lt;t:ToRecipients&gt;&#13;
+            &lt;t:Mailbox&gt;&#13;
+              &lt;t:EmailAddress&gt;****TO*****&lt;/t:EmailAddress&gt;&#13;
+            &lt;/t:Mailbox&gt;&#13;
+          &lt;/t:ToRecipients&gt;&#13;
+        &lt;/t:Message&gt;&#13;
+      &lt;/m:Items&gt;&#13;
+    &lt;/m:CreateItem&gt;&#13;
+  &lt;/soap:Body&gt;&#13;
+&lt;/soap:Envelope&gt;</property>
+            <property name="currentlyAssigned" class="Boolean">true</property>
+            <property name="lastKnownAttributeType" class="java.lang.Class">kapow.robot.plugin.common.domain.XML2AttributeType</property>
+          </property>
           <property name="Uri" class="AttributeAssignment">
             <property name="attributeValue" class="String">https://mail2.kofax.com/ews/exchange.asmx</property>
             <property name="currentlyAssigned" class="Boolean">true</property>
@@ -164,7 +146,7 @@
         <property name="name" class="String">Open EWS Message</property>
         <property name="stepAction" class="OpenVariable">
           <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">SOAP_Body</property>
+            <property name="name" class="String">EWS.SOAP</property>
           </property>
         </property>
         <property name="elementFinders" class="ElementFinders"/>
@@ -181,7 +163,7 @@
           <property name="setContentMode" class="SetExistingTag"/>
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.To</property>
+              <property name="name" class="String">Email.To</property>
             </property>
           </property>
         </property>
@@ -207,7 +189,7 @@
           <property name="setContentMode" class="SetExistingTag"/>
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.Subject</property>
+              <property name="name" class="String">Email.Subject</property>
             </property>
           </property>
         </property>
@@ -235,7 +217,7 @@
             <property name="dataConverters" class="DataConverters">
               <element class="GetVariable" serializationversion="2">
                 <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">OutboundEmail.Body</property>
+                  <property name="name" class="String">Email.Body</property>
                 </property>
               </element>
               <element class="AmpersandEncode"/>
@@ -278,7 +260,7 @@
         <property name="name" class="String">CC?</property>
         <property name="stepAction" class="TestValue" serializationversion="0">
           <property name="condition" class="Expression" serializationversion="1">
-            <property name="text" class="String">OutboundEmail.CC!=""</property>
+            <property name="text" class="String">Email.CC!=""</property>
           </property>
         </property>
         <property name="elementFinders" class="ElementFinders"/>
@@ -327,7 +309,7 @@
           <property name="setContentMode" class="SetExistingTag"/>
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.CC</property>
+              <property name="name" class="String">Email.CC</property>
             </property>
           </property>
         </property>
@@ -355,7 +337,7 @@
         <property name="name" class="String">BCC?</property>
         <property name="stepAction" class="TestValue" serializationversion="0">
           <property name="condition" class="Expression" serializationversion="1">
-            <property name="text" class="String">OutboundEmail.BCC!=""</property>
+            <property name="text" class="String">Email.BCC!=""</property>
           </property>
         </property>
         <property name="elementFinders" idref="5"/>
@@ -404,7 +386,7 @@
           <property name="setContentMode" class="SetExistingTag"/>
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.BCC</property>
+              <property name="name" class="String">Email.BCC</property>
             </property>
           </property>
         </property>
@@ -424,10 +406,10 @@
       </object>
       <object class="Try" id="21"/>
       <object class="Transition" serializationversion="3" id="22">
-        <property name="name" class="String">Attachement?</property>
+        <property name="name" class="String">Attachment?</property>
         <property name="stepAction" class="TestValue" serializationversion="0">
           <property name="condition" class="Expression" serializationversion="1">
-            <property name="text" class="String">OutboundEmail.AttachmentName!=""</property>
+            <property name="text" class="String">Email.AttachmentName!=""</property>
           </property>
         </property>
         <property name="elementFinders" class="ElementFinders"/>
@@ -476,7 +458,7 @@
           <property name="setContentMode" class="SetExistingTag"/>
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.AttachmentName</property>
+              <property name="name" class="String">Email.AttachmentName</property>
             </property>
           </property>
         </property>
@@ -508,7 +490,7 @@
             </property>
           </property>
           <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">OutboundEmail.Attachment</property>
+            <property name="name" class="String">Email.Attachment</property>
           </property>
         </property>
         <property name="elementFinders" idref="5"/>
@@ -529,7 +511,7 @@
             <property name="dataConverters" class="DataConverters">
               <element class="GetVariable" serializationversion="2">
                 <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">OutboundEmail.Attachment</property>
+                  <property name="name" class="String">Email.Attachment</property>
                 </property>
               </element>
               <element class="Base64Encode"/>
@@ -564,7 +546,7 @@
             </property>
             <property name="sOAPRequestProvider" class="kapow.robot.plugin.common.support.xml.provider.VariableValueXMLProvider" serializationversion="1">
               <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">SOAP_Body</property>
+                <property name="name" class="String">EWS.SOAP</property>
               </property>
             </property>
             <property name="sOAPVersion" class="String">SOAP 1.2</property>
@@ -593,8 +575,11 @@
                 </object>
               </property>
             </property>
+            <property name="responseStatusCodeAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+              <property name="name" class="String">EWS.StatusCode</property>
+            </property>
             <property name="responseHeadersAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">out</property>
+              <property name="name" class="String">EWS.Headers</property>
             </property>
             <property name="ignoreLoadErrors" class="Boolean">true</property>
             <property name="ancestorProvider" class="BrowserConfigurationSpecificationAncestorProviderForStep"/>
@@ -661,7 +646,7 @@
         <property name="name" class="String">success log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
-            <property name="text" class="String">OutboundEmail.To + ";success"</property>
+            <property name="text" class="String">Email.To + ";success"</property>
           </property>
         </property>
         <property name="elementFinders" idref="29"/>
@@ -679,7 +664,7 @@
         <property name="name" class="String">fail log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
-            <property name="text" class="String">OutboundEmail.To + ";fail"</property>
+            <property name="text" class="String">Email.To + ";fail"</property>
           </property>
         </property>
         <property name="elementFinders" class="ElementFinders"/>
