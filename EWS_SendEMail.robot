@@ -223,156 +223,7 @@
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Try" id="10"/>
-      <object class="Transition" serializationversion="3" id="11">
-        <property name="name" class="String">CC?</property>
-        <property name="stepAction" class="TestValue" serializationversion="0">
-          <property name="condition" class="Expression" serializationversion="1">
-            <property name="text" class="String">OutboundEmail.CC!=""</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0">
-          <property name="reportingViaAPI" class="Boolean">false</property>
-          <property name="reportingViaLog" class="Boolean">false</property>
-          <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
-        </property>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="4"/>
-        <property name="changedProperties" class="java.util.HashSet">
-          <element class="String">name</element>
-        </property>
-      </object>
-      <object class="Transition" serializationversion="3" id="12">
-        <property name="name" class="String" id="13">Insert Content</property>
-        <property name="stepAction" class="InsertContent" serializationversion="0">
-          <property name="content" class="kapow.robot.plugin.common.support.expression.stringexpr.MultilineValueStringExpression">
-            <property name="value" class="String">          &lt;t:CcRecipients&gt;
-            &lt;t:Mailbox&gt;
-              &lt;t:EmailAddress&gt;****CC*****&lt;/t:EmailAddress&gt;
-            &lt;/t:Mailbox&gt;
-          &lt;/t:CcRecipients&gt;</property>
-          </property>
-          <property name="tagInsertionMode" class="LastChildTagInsertionMode2"/>
-        </property>
-        <property name="elementFinders" class="ElementFinders">
-          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-              <property name="value" class="String">.*.t:message</property>
-            </property>
-          </object>
-        </property>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="4"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="14">
-        <property name="name" class="String" id="15">Set Content</property>
-        <property name="stepAction" class="SetContentStepAction" serializationversion="0">
-          <property name="setContentMode" class="SetExistingTag"/>
-          <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
-            <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.CC</property>
-            </property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders">
-          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-              <property name="value" class="String">.*.t:bccrecipients.*.t:emailaddress</property>
-            </property>
-          </object>
-          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-              <property name="value" class="String">.*.t:ccrecipients.*.t:emailaddress</property>
-            </property>
-          </object>
-        </property>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="4"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Try" id="16"/>
-      <object class="Transition" serializationversion="3" id="17">
-        <property name="name" class="String">BCC?</property>
-        <property name="stepAction" class="TestValue" serializationversion="0">
-          <property name="condition" class="Expression" serializationversion="1">
-            <property name="text" class="String">OutboundEmail.BCC!=""</property>
-          </property>
-        </property>
-        <property name="elementFinders" idref="7"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0">
-          <property name="reportingViaAPI" class="Boolean">false</property>
-          <property name="reportingViaLog" class="Boolean">false</property>
-          <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
-        </property>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="4"/>
-        <property name="changedProperties" class="java.util.HashSet">
-          <element class="String">name</element>
-        </property>
-      </object>
-      <object class="Transition" serializationversion="3" id="18">
-        <property name="name" idref="13"/>
-        <property name="stepAction" class="InsertContent" serializationversion="0">
-          <property name="content" class="kapow.robot.plugin.common.support.expression.stringexpr.MultilineValueStringExpression">
-            <property name="value" class="String">          &lt;t:BccRecipients&gt;
-            &lt;t:Mailbox&gt;
-              &lt;t:EmailAddress&gt;****BCC*****&lt;/t:EmailAddress&gt;
-            &lt;/t:Mailbox&gt;
-          &lt;/t:BccRecipients&gt;</property>
-          </property>
-          <property name="tagInsertionMode" class="LastChildTagInsertionMode2"/>
-        </property>
-        <property name="elementFinders" class="ElementFinders">
-          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-              <property name="value" class="String">.*.t:message</property>
-            </property>
-          </object>
-        </property>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="4"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="19">
-        <property name="name" idref="15"/>
-        <property name="stepAction" class="SetContentStepAction" serializationversion="0">
-          <property name="setContentMode" class="SetExistingTag"/>
-          <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
-            <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.BCC</property>
-            </property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders">
-          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-              <property name="value" class="String">.*.t:bccrecipients.*.t:emailaddress</property>
-            </property>
-          </object>
-        </property>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="4"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="20">
+      <object class="Transition" serializationversion="3" id="10">
         <property name="name" class="String">Subject</property>
         <property name="stepAction" class="SetContentStepAction" serializationversion="0">
           <property name="setContentMode" class="SetExistingTag"/>
@@ -395,10 +246,10 @@
         </property>
         <property name="enabled" idref="4"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element class="String" id="21">name</element>
+          <element class="String">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="22">
+      <object class="Transition" serializationversion="3" id="11">
         <property name="name" class="String">Body</property>
         <property name="stepAction" class="SetContentStepAction" serializationversion="0">
           <property name="setContentMode" class="SetExistingTag"/>
@@ -441,10 +292,159 @@
         </property>
         <property name="enabled" idref="4"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element idref="21"/>
+          <element class="String">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="23">
+      <object class="Try" id="12"/>
+      <object class="Transition" serializationversion="3" id="13">
+        <property name="name" class="String">CC?</property>
+        <property name="stepAction" class="TestValue" serializationversion="0">
+          <property name="condition" class="Expression" serializationversion="1">
+            <property name="text" class="String">OutboundEmail.CC!=""</property>
+          </property>
+        </property>
+        <property name="elementFinders" class="ElementFinders"/>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+          <property name="reportingViaAPI" class="Boolean">false</property>
+          <property name="reportingViaLog" class="Boolean">false</property>
+          <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+        </property>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="4"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element class="String">name</element>
+        </property>
+      </object>
+      <object class="Transition" serializationversion="3" id="14">
+        <property name="name" class="String" id="15">Insert Content</property>
+        <property name="stepAction" class="InsertContent" serializationversion="0">
+          <property name="content" class="kapow.robot.plugin.common.support.expression.stringexpr.MultilineValueStringExpression">
+            <property name="value" class="String">          &lt;t:CcRecipients&gt;
+            &lt;t:Mailbox&gt;
+              &lt;t:EmailAddress&gt;****CC*****&lt;/t:EmailAddress&gt;
+            &lt;/t:Mailbox&gt;
+          &lt;/t:CcRecipients&gt;</property>
+          </property>
+          <property name="tagInsertionMode" class="LastChildTagInsertionMode2"/>
+        </property>
+        <property name="elementFinders" class="ElementFinders">
+          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+              <property name="value" class="String">.*.t:message</property>
+            </property>
+          </object>
+        </property>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="4"/>
+        <property name="changedProperties" class="java.util.HashSet"/>
+      </object>
+      <object class="Transition" serializationversion="3" id="16">
+        <property name="name" class="String" id="17">Set Content</property>
+        <property name="stepAction" class="SetContentStepAction" serializationversion="0">
+          <property name="setContentMode" class="SetExistingTag"/>
+          <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
+            <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+              <property name="name" class="String">OutboundEmail.CC</property>
+            </property>
+          </property>
+        </property>
+        <property name="elementFinders" class="ElementFinders">
+          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+              <property name="value" class="String">.*.t:bccrecipients.*.t:emailaddress</property>
+            </property>
+          </object>
+          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+              <property name="value" class="String">.*.t:ccrecipients.*.t:emailaddress</property>
+            </property>
+          </object>
+        </property>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="4"/>
+        <property name="changedProperties" class="java.util.HashSet"/>
+      </object>
+      <object class="Try" id="18"/>
+      <object class="Transition" serializationversion="3" id="19">
+        <property name="name" class="String">BCC?</property>
+        <property name="stepAction" class="TestValue" serializationversion="0">
+          <property name="condition" class="Expression" serializationversion="1">
+            <property name="text" class="String">OutboundEmail.BCC!=""</property>
+          </property>
+        </property>
+        <property name="elementFinders" idref="7"/>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+          <property name="reportingViaAPI" class="Boolean">false</property>
+          <property name="reportingViaLog" class="Boolean">false</property>
+          <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+        </property>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="4"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element class="String">name</element>
+        </property>
+      </object>
+      <object class="Transition" serializationversion="3" id="20">
+        <property name="name" idref="15"/>
+        <property name="stepAction" class="InsertContent" serializationversion="0">
+          <property name="content" class="kapow.robot.plugin.common.support.expression.stringexpr.MultilineValueStringExpression">
+            <property name="value" class="String">          &lt;t:BccRecipients&gt;
+            &lt;t:Mailbox&gt;
+              &lt;t:EmailAddress&gt;****BCC*****&lt;/t:EmailAddress&gt;
+            &lt;/t:Mailbox&gt;
+          &lt;/t:BccRecipients&gt;</property>
+          </property>
+          <property name="tagInsertionMode" class="LastChildTagInsertionMode2"/>
+        </property>
+        <property name="elementFinders" class="ElementFinders">
+          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+              <property name="value" class="String">.*.t:message</property>
+            </property>
+          </object>
+        </property>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="4"/>
+        <property name="changedProperties" class="java.util.HashSet"/>
+      </object>
+      <object class="Transition" serializationversion="3" id="21">
+        <property name="name" idref="17"/>
+        <property name="stepAction" class="SetContentStepAction" serializationversion="0">
+          <property name="setContentMode" class="SetExistingTag"/>
+          <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
+            <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+              <property name="name" class="String">OutboundEmail.BCC</property>
+            </property>
+          </property>
+        </property>
+        <property name="elementFinders" class="ElementFinders">
+          <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+              <property name="value" class="String">.*.t:bccrecipients.*.t:emailaddress</property>
+            </property>
+          </object>
+        </property>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="4"/>
+        <property name="changedProperties" class="java.util.HashSet"/>
+      </object>
+      <object class="Transition" serializationversion="3" id="22">
         <property name="name" class="String">EWS - Send Email</property>
         <property name="stepAction" class="CallSOAPWebService" serializationversion="1">
           <property name="webserviceInvoker" class="kapow.robot.plugin.common.stateprocessor.callwebservice3.ManualSOAPRequestProvider">
@@ -508,10 +508,10 @@
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="24">
+      <object class="Transition" serializationversion="3" id="23">
         <property name="name" class="String">View as XML</property>
         <property name="stepAction" class="ViewAsXML"/>
-        <property name="elementFinders" class="ElementFinders" id="25"/>
+        <property name="elementFinders" class="ElementFinders" id="24"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
@@ -519,8 +519,8 @@
         <property name="enabled" idref="4"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Try" id="26"/>
-      <object class="Transition" serializationversion="3" id="27">
+      <object class="Try" id="25"/>
+      <object class="Transition" serializationversion="3" id="26">
         <property name="name" class="String">Email Sent?</property>
         <property name="stepAction" class="TestTag" serializationversion="1">
           <property name="pattern" class="kapow.robot.plugin.common.support.expression.stringexpr.PatternValueStringExpression">
@@ -545,28 +545,28 @@
         </property>
         <property name="enabled" idref="4"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element class="String" id="28">name</element>
+          <element class="String" id="27">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="29">
+      <object class="Transition" serializationversion="3" id="28">
         <property name="name" class="String">success log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
             <property name="text" class="String">OutboundEmail.To + ";success"</property>
           </property>
         </property>
-        <property name="elementFinders" idref="25"/>
+        <property name="elementFinders" idref="24"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
         <property name="enabled" idref="4"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element idref="28"/>
+          <element idref="27"/>
         </property>
       </object>
-      <object class="End" id="30"/>
-      <object class="Transition" serializationversion="3" id="31">
+      <object class="End" id="29"/>
+      <object class="Transition" serializationversion="3" id="30">
         <property name="name" class="String">fail log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
@@ -583,7 +583,7 @@
           <element class="String">name</element>
         </property>
       </object>
-      <object class="End" id="32"/>
+      <object class="End" id="31"/>
     </steps>
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
@@ -608,15 +608,19 @@
         <to idref="11"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="10"/>
-        <to idref="16"/>
-      </object>
-      <object class="TransitionEdge">
         <from idref="11"/>
         <to idref="12"/>
       </object>
       <object class="TransitionEdge">
         <from idref="12"/>
+        <to idref="13"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="12"/>
+        <to idref="18"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="13"/>
         <to idref="14"/>
       </object>
       <object class="TransitionEdge">
@@ -625,14 +629,6 @@
       </object>
       <object class="TransitionEdge">
         <from idref="16"/>
-        <to idref="17"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="16"/>
-        <to idref="20"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="17"/>
         <to idref="18"/>
       </object>
       <object class="TransitionEdge">
@@ -640,11 +636,19 @@
         <to idref="19"/>
       </object>
       <object class="TransitionEdge">
+        <from idref="18"/>
+        <to idref="22"/>
+      </object>
+      <object class="TransitionEdge">
         <from idref="19"/>
         <to idref="20"/>
       </object>
       <object class="TransitionEdge">
         <from idref="20"/>
+        <to idref="21"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="21"/>
         <to idref="22"/>
       </object>
       <object class="TransitionEdge">
@@ -653,31 +657,27 @@
       </object>
       <object class="TransitionEdge">
         <from idref="23"/>
-        <to idref="24"/>
+        <to idref="25"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="24"/>
+        <from idref="25"/>
         <to idref="26"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="26"/>
-        <to idref="27"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="26"/>
-        <to idref="31"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="27"/>
-        <to idref="29"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="29"/>
+        <from idref="25"/>
         <to idref="30"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="31"/>
-        <to idref="32"/>
+        <from idref="26"/>
+        <to idref="28"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="28"/>
+        <to idref="29"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="30"/>
+        <to idref="31"/>
       </object>
     </edges>
   </property>
