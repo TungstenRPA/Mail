@@ -102,11 +102,6 @@
             <property name="currentlyAssigned" class="Boolean">true</property>
             <property name="lastKnownAttributeType" idref="1"/>
           </property>
-          <property name="BCC" class="AttributeAssignment">
-            <property name="attributeValue" class="String">david.wright@kofax.com</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="1"/>
-          </property>
           <property name="Subject" class="AttributeAssignment">
             <property name="attributeValue" class="String">Email subject</property>
             <property name="currentlyAssigned" class="Boolean">true</property>
@@ -282,7 +277,7 @@
           <property name="setContentMode" class="SetExistingTag"/>
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">OutboundEmail.BCC</property>
+              <property name="name" class="String">OutboundEmail.CC</property>
             </property>
           </property>
         </property>
