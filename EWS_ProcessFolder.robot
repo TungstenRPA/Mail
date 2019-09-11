@@ -385,7 +385,46 @@
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="18">
+      <object class="Try" id="18"/>
+      <object class="Transition" serializationversion="3" id="19">
+        <property name="name" class="String">Find Items</property>
+        <property name="stepAction" class="AssignVariable" serializationversion="4">
+          <property name="stringExpr" class="Expression" serializationversion="1">
+            <property name="text" class="String">&gt;&gt;&lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages"
+               xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types"
+               xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+  &lt;soap:Header&gt;
+    &lt;t:RequestServerVersion Version="Exchange2010" /&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;m:FindItem Traversal="Shallow"&gt;
+      &lt;m:ItemShape&gt;
+        &lt;t:BaseShape&gt;IdOnly&lt;/t:BaseShape&gt;
+      &lt;/m:ItemShape&gt;
+      &lt;m:ParentFolderIds&gt;
+        &lt;t:DistinguishedFolderId Id="inbox" /&gt;
+      &lt;/m:ParentFolderIds&gt;
+    &lt;/m:FindItem&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+&lt;&lt;</property>
+          </property>
+          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+            <property name="name" class="String">ews.Request</property>
+          </property>
+        </property>
+        <property name="elementFinders" class="ElementFinders"/>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="2"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element class="String">name</element>
+        </property>
+      </object>
+      <object class="Transition" serializationversion="3" id="20">
         <property name="name" class="String">Find Folders</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
@@ -435,6 +474,7 @@
           <element class="String">name</element>
         </property>
       </object>
+      <object class="End" id="21"/>
     </steps>
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
@@ -496,7 +536,19 @@
       </object>
       <object class="TransitionEdge">
         <from idref="18"/>
+        <to idref="19"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="18"/>
+        <to idref="20"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="19"/>
         <to idref="8"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="20"/>
+        <to idref="21"/>
       </object>
     </edges>
   </property>
