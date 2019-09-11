@@ -443,6 +443,7 @@
         &lt;t:AdditionalProperties&gt;
           &lt;t:FieldURI FieldURI="item:Subject"/&gt;
           &lt;t:FieldURI FieldURI="item:DateTimeSent"/&gt;
+          &lt;t:FieldURI FieldURI="item:DateTimeReceived"/&gt;
           &lt;t:FieldURI FieldURI="message:IsRead"/&gt; 
           &lt;t:FieldURI FieldURI="message:From"/&gt; 
         &lt;/t:AdditionalProperties&gt;
