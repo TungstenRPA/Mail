@@ -444,11 +444,13 @@
           &lt;t:FieldURI FieldURI="item:Subject"/&gt;
           &lt;t:FieldURI FieldURI="item:DateTimeSent"/&gt;
           &lt;t:FieldURI FieldURI="item:DateTimeReceived"/&gt;
-          &lt;t:FieldURI FieldURI="message:IsRead"/&gt; 
-          &lt;t:FieldURI FieldURI="message:From"/&gt; 
+          &lt;t:FieldURI FieldURI="item:HasAttachments"/&gt;
+           &lt;t:FieldURI FieldURI="message:IsRead"/&gt; 
+          &lt;t:FieldURI FieldURI="message:From"/&gt;   
+
         &lt;/t:AdditionalProperties&gt;
       &lt;/m:ItemShape&gt;
-      &lt;m:IndexedPageItemView MaxEntriesReturned="6" Offset="0" BasePoint="Beginning" /&gt;
+      &lt;m:IndexedPageItemView MaxEntriesReturned="10" Offset="0" BasePoint="Beginning" /&gt;
       &lt;m:ParentFolderIds&gt;
         &lt;t:DistinguishedFolderId Id="inbox" /&gt;
       &lt;/m:ParentFolderIds&gt;
