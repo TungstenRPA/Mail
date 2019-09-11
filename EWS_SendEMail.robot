@@ -94,7 +94,7 @@
             <property name="lastKnownAttributeType" class="java.lang.Class">kapow.robot.plugin.common.domain.XML2AttributeType</property>
           </property>
           <property name="Uri" class="AttributeAssignment">
-            <property name="attributeValue" class="String">https://mail2.kofax.com/ews/exchange.asmx</property>
+            <property name="attributeValue" class="String">https://mail.kofax.com/ews/exchange.asmx</property>
             <property name="currentlyAssigned" class="Boolean">true</property>
             <property name="lastKnownAttributeType" idref="0"/>
           </property>
@@ -161,7 +161,8 @@
         </property>
         <property name="elementFinders" class="ElementFinders"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment" class="String">https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-send-email-messages-by-using-ews-in-exchange</property>
+        <property name="comment" class="String">https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-send-email-messages-by-using-ews-in-exchange
+https://docs.microsoft.com/en-us/previous-versions/office/developer/exchange-server-2010/aa563009(v=exchg.140)</property>
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet">
           <element class="String">name</element>
