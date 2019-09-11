@@ -444,6 +444,7 @@
           &lt;t:FieldURI FieldURI="item:Subject"/&gt;
           &lt;t:FieldURI FieldURI="item:DateTimeSent"/&gt;
           &lt;t:FieldURI FieldURI="message:IsRead"/&gt; 
+          &lt;t:FieldURI FieldURI="message:From"/&gt; 
         &lt;/t:AdditionalProperties&gt;
       &lt;/m:ItemShape&gt;
       &lt;m:IndexedPageItemView MaxEntriesReturned="6" Offset="0" BasePoint="Beginning" /&gt;
