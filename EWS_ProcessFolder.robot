@@ -387,7 +387,7 @@
       </object>
       <object class="Try" id="18"/>
       <object class="Transition" serializationversion="3" id="19">
-        <property name="name" class="String">Find Items</property>
+        <property name="name" class="String">Find All Items in Inbox</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
             <property name="text" class="String">&gt;&gt;&lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -401,7 +401,11 @@
     &lt;m:FindItem Traversal="Shallow"&gt;
       &lt;m:ItemShape&gt;
         &lt;t:BaseShape&gt;IdOnly&lt;/t:BaseShape&gt;
+        &lt;t:AdditionalProperties&gt;
+          &lt;t:FieldURI FieldURI="item:Subject"/&gt;
+        &lt;/t:AdditionalProperties&gt;
       &lt;/m:ItemShape&gt;
+      &lt;m:IndexedPageItemView MaxEntriesReturned="6" Offset="0" BasePoint="Beginning" /&gt;
       &lt;m:ParentFolderIds&gt;
         &lt;t:DistinguishedFolderId Id="inbox" /&gt;
       &lt;/m:ParentFolderIds&gt;
