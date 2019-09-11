@@ -300,8 +300,47 @@
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Try" id="10"/>
-      <object class="Transition" serializationversion="3" id="11">
+      <object class="BranchPoint" id="10"/>
+      <object class="End" id="11"/>
+      <object class="Transition" serializationversion="3" id="12">
+        <property name="name" class="String">Get 1 item</property>
+        <property name="stepAction" class="AssignVariable" serializationversion="4">
+          <property name="stringExpr" class="Expression" serializationversion="1">
+            <property name="text" class="String">&gt;&gt;&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types"&gt;
+  &lt;soap:Body&gt;
+    &lt;GetItem xmlns="http://schemas.microsoft.com/exchange/services/2006/messages" 
+                  xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types"&gt;
+      &lt;ItemShape&gt;
+        &lt;t:BaseShape&gt;IdOnly&lt;/t:BaseShape&gt;
+        &lt;t:AdditionalProperties&gt;
+          &lt;t:FieldURI FieldURI="item:Subject"/&gt;
+        &lt;/t:AdditionalProperties&gt;
+      &lt;/ItemShape&gt;
+      &lt;ItemIds&gt;
+        &lt;t:ItemId Id="ASkAS="/&gt;
+      &lt;/ItemIds&gt;
+    &lt;/GetItem&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;&lt;&lt;</property>
+          </property>
+          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+            <property name="name" class="String">ews.Request</property>
+          </property>
+        </property>
+        <property name="elementFinders" class="ElementFinders"/>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment" class="String">https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/additionalproperties</property>
+        <property name="enabled" idref="2"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element class="String">name</element>
+        </property>
+      </object>
+      <object class="Try" id="13"/>
+      <object class="Transition" serializationversion="3" id="14">
         <property name="name" class="String">Email Sent?</property>
         <property name="stepAction" class="TestTag" serializationversion="1">
           <property name="pattern" class="kapow.robot.plugin.common.support.expression.stringexpr.PatternValueStringExpression">
@@ -326,10 +365,10 @@
         </property>
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element class="String" id="12">name</element>
+          <element class="String" id="15">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="13">
+      <object class="Transition" serializationversion="3" id="16">
         <property name="name" class="String">success log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
@@ -343,11 +382,11 @@
         </property>
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element idref="12"/>
+          <element idref="15"/>
         </property>
       </object>
-      <object class="End" id="14"/>
-      <object class="Transition" serializationversion="3" id="15">
+      <object class="End" id="17"/>
+      <object class="Transition" serializationversion="3" id="18">
         <property name="name" class="String">fail log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
@@ -364,8 +403,8 @@
           <element class="String">name</element>
         </property>
       </object>
-      <object class="End" id="16"/>
-      <object class="Transition" serializationversion="3" id="17">
+      <object class="End" id="19"/>
+      <object class="Transition" serializationversion="3" id="20">
         <property name="name" class="String">Use Kofax.com</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -385,8 +424,8 @@
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Try" id="18"/>
-      <object class="Transition" serializationversion="3" id="19">
+      <object class="Try" id="21"/>
+      <object class="Transition" serializationversion="3" id="22">
         <property name="name" class="String">Find All Items in Inbox</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
@@ -403,6 +442,8 @@
         &lt;t:BaseShape&gt;IdOnly&lt;/t:BaseShape&gt;
         &lt;t:AdditionalProperties&gt;
           &lt;t:FieldURI FieldURI="item:Subject"/&gt;
+          &lt;t:FieldURI FieldURI="item:DateTimeSent"/&gt;
+          &lt;t:FieldURI FieldURI="message:IsRead"/&gt; 
         &lt;/t:AdditionalProperties&gt;
       &lt;/m:ItemShape&gt;
       &lt;m:IndexedPageItemView MaxEntriesReturned="6" Offset="0" BasePoint="Beginning" /&gt;
@@ -420,15 +461,15 @@
         </property>
         <property name="elementFinders" class="ElementFinders"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
+        <property name="comment" class="String">https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/indexedpageitemview
+
+Items are found at https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/fielduri</property>
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet">
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="20">
+      <object class="Transition" serializationversion="3" id="23">
         <property name="name" class="String">Find Folders</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
@@ -478,7 +519,7 @@
           <element class="String">name</element>
         </property>
       </object>
-      <object class="End" id="21"/>
+      <object class="End" id="24"/>
     </steps>
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
@@ -496,7 +537,7 @@
       </object>
       <object class="TransitionEdge">
         <from idref="5"/>
-        <to idref="17"/>
+        <to idref="20"/>
       </object>
       <object class="TransitionEdge">
         <from idref="6"/>
@@ -520,10 +561,10 @@
       </object>
       <object class="TransitionEdge">
         <from idref="10"/>
-        <to idref="15"/>
+        <to idref="12"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="11"/>
+        <from idref="12"/>
         <to idref="13"/>
       </object>
       <object class="TransitionEdge">
@@ -531,28 +572,40 @@
         <to idref="14"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="15"/>
+        <from idref="13"/>
+        <to idref="18"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="14"/>
         <to idref="16"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="17"/>
-        <to idref="18"/>
+        <from idref="16"/>
+        <to idref="17"/>
       </object>
       <object class="TransitionEdge">
         <from idref="18"/>
         <to idref="19"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="18"/>
-        <to idref="20"/>
+        <from idref="20"/>
+        <to idref="21"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="19"/>
+        <from idref="21"/>
+        <to idref="22"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="21"/>
+        <to idref="23"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="22"/>
         <to idref="8"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="20"/>
-        <to idref="21"/>
+        <from idref="23"/>
+        <to idref="24"/>
       </object>
     </edges>
   </property>
