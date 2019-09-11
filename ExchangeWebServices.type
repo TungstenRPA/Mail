@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<object class="kapow.robot.common.domain.Type" serializationversion="0">
+  <prologue>
+    <saved-by-versions>
+      <version>10.2.0.2</version>
+      <version>10.6.0.2</version>
+    </saved-by-versions>
+  </prologue>
+  <property name="attributes" class="kapow.robot.common.domain.Attributes">
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">Version</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="defaultValue" class="String">Exchange2010_SP2</property>
+      <property name="comment" class="String">Exchange2013_SP1
+Exchange2013
+Exchange2010_SP2    : Kofax
+Exchange2010_SP1
+Exchange2010
+Exchange2007_SP1
+Exchange2007
+https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/ews-schema-versions-in-exchange?redirectedfrom=MSDN
+</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">Uri</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="defaultValue" class="String">https://mail.kofax.com/ews/exchange.asmx</property>
+      <property name="comment" class="String">https://outlook.office365.com/EWS/Exchange.asmx
+https://mail.kofax.com/ews/exchange.asmx</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">User</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">Password</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">Request</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.XML2AttributeType"/>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">ItemId</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">StatusCode</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="comment" class="String">Response from Exchange Webservices
+200=success</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="0">
+      <property name="name" class="String">Headers</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.TextAttributeType"/>
+      <property name="comment" class="String">Response from Exchange Webservices</property>
+    </object>
+  </property>
+</object>
