@@ -580,9 +580,6 @@ https://docs.microsoft.com/en-us/previous-versions/office/developer/exchange-ser
                 <property name="name" class="String">EWS.Uri</property>
               </property>
             </property>
-            <property name="sOAPActionExpression" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-              <property name="value" class="String">FindFolders</property>
-            </property>
             <property name="sOAPRequestProvider" class="kapow.robot.plugin.common.support.xml.provider.VariableValueXMLProvider" serializationversion="1">
               <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">EWS.Request</property>
