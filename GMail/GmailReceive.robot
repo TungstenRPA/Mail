@@ -4,6 +4,7 @@
     <saved-by-versions>
       <version>10.4.0.0</version>
       <version>10.5.0.0</version>
+      <version>10.6.0.2</version>
     </saved-by-versions>
     <referenced-types>
       <type name="MailMessage"/>
@@ -86,26 +87,6 @@
           <property name="typeName" class="String">OAuthCredentials</property>
         </property>
         <property name="assignments" class="AttributeAssignments">
-          <property name="accessToken" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){82ZdGXnhcmqtevDxFZWFXek3jE5/0ltJoqTcFV9/tTzneqJVwfw+PI+rvR8eb65QvT2gDa3+VD2ggdMVMZiOO+Y9dlGb0G8itnro2k2Mjlfwe3wirfBNW6Sb3+lchXVfvX6lLbjOXTagarXYXJ2tKs1VYVTA/F9Wfo2+HEmEeG3B}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" class="java.lang.Class" id="4">kapow.robot.plugin.common.domain.PasswordAttributeType</property>
-          </property>
-          <property name="consumerKey" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){rDljFHvTNimGa7XXFZR3Zq9sm1F+EGthwJz0HVOYs2XsO5tSfwJnWLuq9xpcWaNo6nhZR7oJbWGzrfgMWo6xZu5qmVR5/XVi}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="4"/>
-          </property>
-          <property name="consumerSecret" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){7Fd7TpcLf0empMkGP2OKTex3gRN8631g}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="4"/>
-          </property>
-          <property name="refreshToken" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){qzRfWXjcWEmlmbnuYnCbMeU3oBez0zhgmmv/FDWCe1HRf14kvdKAOriCzA9X}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="4"/>
-          </property>
           <property name="serviceProvider" class="AttributeAssignment">
             <property name="attributeValue" class="String">Google</property>
             <property name="currentlyAssigned" class="Boolean">true</property>
@@ -122,10 +103,10 @@
   <property name="ntlmAuthentication" class="NTLMAuthenticationType">
     <property name="enum-name" class="String">STANDARD</property>
   </property>
-  <property name="usePre96DefaultWaiting" class="Boolean" id="5">false</property>
+  <property name="usePre96DefaultWaiting" class="Boolean" id="4">false</property>
   <property name="maxWaitForTimeout" class="Integer">10000</property>
-  <property name="waitRealTime" idref="5"/>
-  <property name="privateHTTPCacheEnabled" class="Boolean" id="6">true</property>
+  <property name="waitRealTime" idref="4"/>
+  <property name="privateHTTPCacheEnabled" class="Boolean" id="5">true</property>
   <property name="privateHTTPCacheSize" class="Integer">2048</property>
   <property name="comment">
     <null/>
@@ -133,23 +114,23 @@
   <property name="executionMode" class="ExecutionMode">
     <property name="enum-name" class="String">FULL</property>
   </property>
-  <property name="avoidExternalReExecution" idref="5"/>
+  <property name="avoidExternalReExecution" idref="4"/>
   <property name="transitionGraph" class="Body">
-    <blockBeginStep class="BlockBeginStep" id="7"/>
+    <blockBeginStep class="BlockBeginStep" id="6"/>
     <steps class="ArrayList">
-      <object class="Transition" serializationversion="3" id="8">
+      <object class="Transition" serializationversion="3" id="7">
         <property name="name" class="String">Repeat</property>
         <property name="stepAction" class="Repeat"/>
-        <property name="elementFinders" class="ElementFinders" id="9"/>
+        <property name="elementFinders" class="ElementFinders" id="8"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="BranchPoint" id="10"/>
-      <object class="Transition" serializationversion="3" id="11">
+      <object class="BranchPoint" id="9"/>
+      <object class="Transition" serializationversion="3" id="10">
         <property name="name" class="String">List Mailbox</property>
         <property name="stepAction" class="LoadPage2">
           <property name="urlProvider" class="kapow.robot.plugin.common.stepaction.urlprovider2.ValueURLProvider2">
@@ -185,25 +166,25 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element class="String" id="12">name</element>
+          <element class="String" id="11">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="13">
+      <object class="Transition" serializationversion="3" id="12">
         <property name="name" class="String">View List</property>
         <property name="stepAction" class="ViewAsJSON"/>
-        <property name="elementFinders" class="ElementFinders" id="14"/>
+        <property name="elementFinders" class="ElementFinders" id="13"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element class="String" id="15">name</element>
+          <element class="String" id="14">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="16">
+      <object class="Transition" serializationversion="3" id="15">
         <property name="name" class="String">For Each Item</property>
         <property name="stepAction" class="ForEachItem"/>
         <property name="elementFinders" class="ElementFinders">
@@ -224,10 +205,10 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="17">
+      <object class="Transition" serializationversion="3" id="16">
         <property name="name" class="String">Extract Message Id</property>
         <property name="stepAction" class="ExtractJSON2">
           <property name="dataConverters" class="DataConverters">
@@ -253,11 +234,11 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="BranchPoint" id="18"/>
-      <object class="Transition" serializationversion="3" id="19">
+      <object class="BranchPoint" id="17"/>
+      <object class="Transition" serializationversion="3" id="18">
         <property name="name" class="String">Get Mail Content</property>
         <property name="stepAction" class="LoadPage2">
           <property name="urlProvider" class="kapow.robot.plugin.common.stepaction.urlprovider2.ExpressionURLProvider2">
@@ -283,30 +264,30 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
             </property>
           </property>
         </property>
-        <property name="elementFinders" idref="14"/>
+        <property name="elementFinders" idref="13"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet">
-          <element idref="12"/>
+          <element idref="11"/>
+        </property>
+      </object>
+      <object class="Transition" serializationversion="3" id="19">
+        <property name="name" class="String">View Mail</property>
+        <property name="stepAction" class="ViewAsJSON"/>
+        <property name="elementFinders" idref="13"/>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="5"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element idref="14"/>
         </property>
       </object>
       <object class="Transition" serializationversion="3" id="20">
-        <property name="name" class="String">View Mail</property>
-        <property name="stepAction" class="ViewAsJSON"/>
-        <property name="elementFinders" idref="14"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="6"/>
-        <property name="changedProperties" class="java.util.HashSet">
-          <element idref="15"/>
-        </property>
-      </object>
-      <object class="Transition" serializationversion="3" id="21">
         <property name="name" class="String">Extract Body</property>
         <property name="stepAction" class="ExtractJSON2">
           <property name="dataConverters" class="DataConverters">
@@ -331,10 +312,10 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="22">
+      <object class="Transition" serializationversion="3" id="21">
         <property name="name" class="String">Extract Headers</property>
         <property name="stepAction" class="ExtractJSON2">
           <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
@@ -352,11 +333,11 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="End" id="23"/>
-      <object class="Transition" serializationversion="3" id="24">
+      <object class="End" id="22"/>
+      <object class="Transition" serializationversion="3" id="23">
         <property name="name" class="String">Delete Mail</property>
         <property name="stepAction" class="RawHTTP2" serializationversion="0">
           <property name="urlProvider" class="kapow.robot.plugin.common.stepaction.urlprovider2.ExpressionURLProvider2">
@@ -393,64 +374,68 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet">
           <element class="String">name</element>
         </property>
       </object>
-      <object class="End" id="25"/>
-      <object class="Transition" serializationversion="3" id="26">
+      <object class="End" id="24"/>
+      <object class="Transition" serializationversion="3" id="25">
         <property name="name" class="String">Wait</property>
         <property name="stepAction" class="Wait2">
           <property name="seconds" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
             <property name="value" class="String">10</property>
           </property>
         </property>
-        <property name="elementFinders" idref="9"/>
+        <property name="elementFinders" idref="8"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="27">
+      <object class="Transition" serializationversion="3" id="26">
         <property name="name" class="String">Next</property>
         <property name="stepAction" class="Next"/>
-        <property name="elementFinders" idref="9"/>
+        <property name="elementFinders" idref="8"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="6"/>
+        <property name="enabled" idref="5"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="End" id="28"/>
+      <object class="End" id="27"/>
     </steps>
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
       <object class="TransitionEdge">
-        <from idref="7"/>
-        <to idref="8"/>
+        <from idref="6"/>
+        <to idref="7"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="8"/>
+        <from idref="7"/>
+        <to idref="9"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="9"/>
         <to idref="10"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="10"/>
-        <to idref="11"/>
+        <from idref="9"/>
+        <to idref="25"/>
       </object>
       <object class="TransitionEdge">
         <from idref="10"/>
-        <to idref="26"/>
+        <to idref="12"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="11"/>
-        <to idref="13"/>
+        <from idref="12"/>
+        <to idref="15"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="13"/>
+        <from idref="15"/>
         <to idref="16"/>
       </object>
       <object class="TransitionEdge">
@@ -462,12 +447,12 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <to idref="18"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="18"/>
-        <to idref="19"/>
+        <from idref="17"/>
+        <to idref="23"/>
       </object>
       <object class="TransitionEdge">
         <from idref="18"/>
-        <to idref="24"/>
+        <to idref="19"/>
       </object>
       <object class="TransitionEdge">
         <from idref="19"/>
@@ -482,20 +467,16 @@ Default value changed for Output Page If Timeout: false -&gt; true</property>
         <to idref="22"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="22"/>
-        <to idref="23"/>
+        <from idref="23"/>
+        <to idref="24"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="24"/>
-        <to idref="25"/>
+        <from idref="25"/>
+        <to idref="26"/>
       </object>
       <object class="TransitionEdge">
         <from idref="26"/>
         <to idref="27"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="27"/>
-        <to idref="28"/>
       </object>
     </edges>
   </property>

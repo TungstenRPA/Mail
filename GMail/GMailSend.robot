@@ -98,26 +98,6 @@ Content-transfer-encoding: base64
           <property name="typeName" class="String">OAuthCredentials</property>
         </property>
         <property name="assignments" class="AttributeAssignments">
-          <property name="accessToken" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){82ZdGXnhcmmCerb+K4yLWe9LcU6QzGtFk5vP9ClziWqnW5hMqgB9ToBru+lXbHhq0z6NT6LQaEm2qtXqM3B6TaxpjEaX+3w4k3Do11dgemLiOn4zuvRLR4Ro+vVWm5Vm7HF0SJQEcUOvsPoRIFiIK+94mkusz30iwWy59hqWeyiy}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" class="java.lang.Class" id="7">kapow.robot.plugin.common.domain.PasswordAttributeType</property>
-          </property>
-          <property name="consumerKey" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){rDljFHvTNimGa7XXFZR3Zq9sm1F+EGthwJz0HVOYs2XsO5tSfwJnWLuq9xpcWaNo6nhZR7oJbWGzrfgMWo6xZu5qmVR5/XVi}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="7"/>
-          </property>
-          <property name="consumerSecret" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){7Fd7TpcLf0empMkGP2OKTex3gRN8631g}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="7"/>
-          </property>
-          <property name="refreshToken" class="AttributeAssignment">
-            <property name="attributeValue" class="String">EncryptedPassword(1){qzR/J5kJSGuUfb4GUXmkas5NnEGw8TdWnmv3+SybdULxTX41xeo/QpexuRot}</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="7"/>
-          </property>
           <property name="serviceProvider" class="AttributeAssignment">
             <property name="attributeValue" class="String">Google</property>
             <property name="currentlyAssigned" class="Boolean">true</property>
@@ -134,10 +114,10 @@ Content-transfer-encoding: base64
   <property name="ntlmAuthentication" class="NTLMAuthenticationType">
     <property name="enum-name" class="String">STANDARD</property>
   </property>
-  <property name="usePre96DefaultWaiting" class="Boolean" id="8">false</property>
+  <property name="usePre96DefaultWaiting" class="Boolean" id="7">false</property>
   <property name="maxWaitForTimeout" class="Integer">10000</property>
-  <property name="waitRealTime" idref="8"/>
-  <property name="privateHTTPCacheEnabled" class="Boolean" id="9">true</property>
+  <property name="waitRealTime" idref="7"/>
+  <property name="privateHTTPCacheEnabled" class="Boolean" id="8">true</property>
   <property name="privateHTTPCacheSize" class="Integer">2048</property>
   <property name="comment">
     <null/>
@@ -145,12 +125,12 @@ Content-transfer-encoding: base64
   <property name="executionMode" class="ExecutionMode">
     <property name="enum-name" class="String">FULL</property>
   </property>
-  <property name="avoidExternalReExecution" idref="8"/>
+  <property name="avoidExternalReExecution" idref="7"/>
   <property name="transitionGraph" class="Body">
-    <blockBeginStep class="BlockBeginStep" id="10"/>
+    <blockBeginStep class="BlockBeginStep" id="9"/>
     <steps class="ArrayList">
-      <object class="Transition" serializationversion="3" id="11">
-        <property name="name" class="String" id="12">Convert Variables</property>
+      <object class="Transition" serializationversion="3" id="10">
+        <property name="name" class="String" id="11">Convert Variables</property>
         <property name="stepAction" class="ConvertVariables">
           <property name="entries" class="kapow.robot.plugin.common.stateprocessor.attributeconverter.AttributeConverterEntries">
             <object class="kapow.robot.plugin.common.stateprocessor.attributeconverter.AttributeConverterEntry" serializationversion="0">
@@ -166,16 +146,16 @@ Content-transfer-encoding: base64
             </object>
           </property>
         </property>
-        <property name="elementFinders" class="ElementFinders" id="13"/>
+        <property name="elementFinders" class="ElementFinders" id="12"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="9"/>
+        <property name="enabled" idref="8"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="14">
-        <property name="name" idref="12"/>
+      <object class="Transition" serializationversion="3" id="13">
+        <property name="name" idref="11"/>
         <property name="stepAction" class="ConvertVariables">
           <property name="entries" class="kapow.robot.plugin.common.stateprocessor.attributeconverter.AttributeConverterEntries">
             <object class="kapow.robot.plugin.common.stateprocessor.attributeconverter.AttributeConverterEntry" serializationversion="0">
@@ -220,30 +200,30 @@ Content-transfer-encoding: base64
             </object>
           </property>
         </property>
-        <property name="elementFinders" idref="13"/>
+        <property name="elementFinders" idref="12"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="9"/>
+        <property name="enabled" idref="8"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="15">
+      <object class="Transition" serializationversion="3" id="14">
         <property name="name" class="String">Open Api Request</property>
         <property name="stepAction" class="OpenVariable">
           <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
             <property name="name" idref="2"/>
           </property>
         </property>
-        <property name="elementFinders" idref="13"/>
+        <property name="elementFinders" idref="12"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="9"/>
+        <property name="enabled" idref="8"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="16">
+      <object class="Transition" serializationversion="3" id="15">
         <property name="name" class="String">Set JSON</property>
         <property name="stepAction" class="SetJSONStepAction">
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
@@ -276,10 +256,10 @@ Content-transfer-encoding: base64
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="9"/>
+        <property name="enabled" idref="8"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="17">
+      <object class="Transition" serializationversion="3" id="16">
         <property name="name" class="String">Raw HTTP</property>
         <property name="stepAction" class="RawHTTP2" serializationversion="0">
           <property name="urlProvider" class="kapow.robot.plugin.common.stepaction.urlprovider2.ValueURLProvider2">
@@ -293,11 +273,11 @@ Content-transfer-encoding: base64
                 </property>
               </property>
               <property name="contentType" class="kapow.robot.plugin.common.support.mimetype.MIMETypeValueStringExpression">
-                <property name="value" class="String" id="18">application/json</property>
+                <property name="value" class="String" id="17">application/json</property>
               </property>
             </property>
             <property name="accept" class="kapow.robot.plugin.common.support.mimetype.AnyMIMETypeValueStringExpression">
-              <property name="value" idref="18"/>
+              <property name="value" idref="17"/>
             </property>
             <property name="storeInAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
               <property name="name" idref="0"/>
@@ -315,24 +295,28 @@ Content-transfer-encoding: base64
             </property>
           </property>
         </property>
-        <property name="elementFinders" idref="13"/>
+        <property name="elementFinders" idref="12"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
         </property>
-        <property name="enabled" idref="9"/>
+        <property name="enabled" idref="8"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="End" id="19"/>
+      <object class="End" id="18"/>
     </steps>
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
       <object class="TransitionEdge">
-        <from idref="10"/>
-        <to idref="11"/>
+        <from idref="9"/>
+        <to idref="10"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="11"/>
+        <from idref="10"/>
+        <to idref="13"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="13"/>
         <to idref="14"/>
       </object>
       <object class="TransitionEdge">
@@ -345,11 +329,7 @@ Content-transfer-encoding: base64
       </object>
       <object class="TransitionEdge">
         <from idref="16"/>
-        <to idref="17"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="17"/>
-        <to idref="19"/>
+        <to idref="18"/>
       </object>
     </edges>
   </property>
