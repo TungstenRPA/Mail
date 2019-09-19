@@ -129,6 +129,33 @@
         </property>
       </object>
       <object class="Transition" serializationversion="3" id="8">
+        <property name="name" class="String">Encode Attachment</property>
+        <property name="stepAction" class="AssignVariable" serializationversion="4">
+          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
+            <property name="dataConverters" class="DataConverters">
+              <element class="GetVariable" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">email.Attachment</property>
+                </property>
+              </element>
+              <element class="Base64Encode"/>
+            </property>
+          </property>
+          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+            <property name="name" class="String">email.Attachment</property>
+          </property>
+        </property>
+        <property name="elementFinders" class="ElementFinders"/>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" idref="3"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element class="String">name</element>
+        </property>
+      </object>
+      <object class="Transition" serializationversion="3" id="9">
         <property name="name" class="String">Add Email to Body</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
@@ -184,14 +211,14 @@
           <element idref="7"/>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="9">
+      <object class="Transition" serializationversion="3" id="10">
         <property name="name" class="String">Open Api Request</property>
         <property name="stepAction" class="OpenVariable">
           <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
             <property name="name" class="String">GMail.Request</property>
           </property>
         </property>
-        <property name="elementFinders" class="ElementFinders" id="10"/>
+        <property name="elementFinders" class="ElementFinders" id="11"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
@@ -201,7 +228,7 @@
           <element idref="7"/>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="11">
+      <object class="Transition" serializationversion="3" id="12">
         <property name="name" class="String">Base64 Encode Email</property>
         <property name="stepAction" class="SetJSONStepAction">
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
@@ -239,7 +266,7 @@
           <element idref="7"/>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="12">
+      <object class="Transition" serializationversion="3" id="13">
         <property name="name" class="String">Raw HTTP</property>
         <property name="stepAction" class="RawHTTP2" serializationversion="0">
           <property name="urlProvider" class="kapow.robot.plugin.common.stepaction.urlprovider2.AttributeURLProvider2" serializationversion="1">
@@ -255,11 +282,11 @@
                 </property>
               </property>
               <property name="contentType" class="kapow.robot.plugin.common.support.mimetype.MIMETypeValueStringExpression">
-                <property name="value" class="String" id="13">application/json</property>
+                <property name="value" class="String" id="14">application/json</property>
               </property>
             </property>
             <property name="accept" class="kapow.robot.plugin.common.support.mimetype.AnyMIMETypeValueStringExpression">
-              <property name="value" idref="13"/>
+              <property name="value" idref="14"/>
             </property>
             <property name="storeInAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
               <property name="name" class="String">GMail.Response</property>
@@ -281,7 +308,7 @@
             </property>
           </property>
         </property>
-        <property name="elementFinders" idref="10"/>
+        <property name="elementFinders" idref="11"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
@@ -289,7 +316,7 @@
         <property name="enabled" idref="3"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="End" id="14"/>
+      <object class="End" id="15"/>
     </steps>
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
@@ -307,15 +334,19 @@
       </object>
       <object class="TransitionEdge">
         <from idref="9"/>
-        <to idref="11"/>
+        <to idref="10"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="11"/>
+        <from idref="10"/>
         <to idref="12"/>
       </object>
       <object class="TransitionEdge">
         <from idref="12"/>
-        <to idref="14"/>
+        <to idref="13"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="13"/>
+        <to idref="15"/>
       </object>
     </edges>
   </property>
