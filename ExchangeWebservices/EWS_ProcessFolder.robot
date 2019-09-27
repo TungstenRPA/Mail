@@ -1523,6 +1523,12 @@ Later we download all the attachment names and check them more throughly</proper
           <object class="Transition" serializationversion="3" id="82">
             <property name="name" class="String">Extract Body</property>
             <property name="stepAction" class="Extract" serializationversion="1">
+              <property name="dataConverters" class="DataConverters">
+                <element class="EvaluateExpression" serializationversion="0">
+                  <property name="expression" class="String">filter.ExportBody =="true" ? INPUT :  ""</property>
+                  <property name="specifiedDescription" class="String">only take the body if the filter says so</property>
+                </element>
+              </property>
               <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">Email.Body</property>
               </property>
@@ -2590,131 +2596,346 @@ https://stackoverflow.com/questions/21575264/search-by-category-exchange-server-
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="130">
-        <property name="name" class="String">Query Database</property>
-        <property name="stepAction" class="QueryDatabase2" serializationversion="1">
-          <property name="databaseName" class="kapow.robot.plugin.common.support.expression.stringexpr.DBNameValueStringExpression">
-            <property name="value" class="kapow.util.db.DBName">
-              <property name="name" class="String">Database</property>
-            </property>
-          </property>
-          <property name="sql" class="String">"/****** Script for SelectTopNRows command from SSMS  ******/
-SELECT TOP 1000 [ID]
-      ,[Name]
-      ,[Account]
-      ,[Server]
-      ,case [SenderFilter] when 'NULL'  then '' else [SenderFilter] end as [SenderFilter]
-      ,[SubjectFilter]
-      ,case [AttachmentFilter] when 'NULL' then '' else [AttachmentFilter] end as [AttachmentFilter]
-      , case [ExportAttachment] when '0' then 'n' when '1' then 'y' end as [ExportAttachment]
-      ,case [ExportBody] when '0' then 'n' when '1' then 'y' end as [ExportBody]
-      ,case [MarkAsRead] when '0' then 'n' when '1' then 'y' end as [MarkAsRead]
-      ,[MoveToFolder]
-      ,[DateCreated]
-      ,[Owner]
-      ,[Description]
-  FROM [FE_Data_Kapow].[dbo].[FE_MSExchange_Filters]
-  
-  where active='true'
-and owner='david.wright@kofax.com'
-  --for xml auto"</property>
-          <property name="columnAttributeMappings" class="kapow.robot.plugin.common.support.database.ColumnAttributeMappings">
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">Id</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+      <object class="Try" id="130">
+        <property name="comment" class="String">The branch below can only be run in the designer.
+it is used to create a filter.</property>
+      </object>
+      <object class="End" id="131"/>
+      <object class="Group" id="132">
+        <name class="String">Create sample Filter</name>
+        <comment>
+          <null/>
+        </comment>
+        <blockBeginStep class="BlockBeginStep" id="133"/>
+        <steps class="ArrayList">
+          <object class="Transition" serializationversion="3" id="134">
+            <property name="name" class="String">id=1</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">1</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">filter.Id</property>
               </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">name</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element class="String">name</element>
+            </property>
+          </object>
+          <object class="Transition" serializationversion="3" id="135">
+            <property name="name" class="String">Assign Name</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">test</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">filter.Name</property>
               </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">account</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.Account</property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="136">
+            <property name="name" class="String">Assign Description</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">test</property>
               </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">owner</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.Owner</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">description</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">filter.Description</property>
               </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">server</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.Server</property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="137">
+            <property name="name" class="String">Assign Subject Filter</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">test</property>
               </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">Senderfilter</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.SenderFilter</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">attachmentfilter</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.AttachmentFilter</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">exportattachment</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.ExportAttachment</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">ExportBody</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.ExportBody</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">MarkAsRead</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.MarkAsRead</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">MoveToFolder</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.MoveToFolder</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">DateCreated</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">filter.DateCreated</property>
-              </property>
-            </object>
-            <object class="kapow.robot.plugin.common.support.database.ColumnAttributeMapping">
-              <property name="columnName" class="String">subjectfilter</property>
-              <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">filter.SubjectFilter</property>
               </property>
-            </object>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="138">
+            <property name="name" class="String">Assign Sender Filter</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.User</property>
+                </property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.SenderFilter</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="139">
+            <property name="name" class="String">Assign Attachment Filter</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">balance\..xt</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.AttachmentFilter</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="140">
+            <property name="name" class="String">Assign Owner</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.User</property>
+                </property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.Owner</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="141">
+            <property name="name" class="String">Assign Account</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.Inbox_Owner</property>
+                </property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.Account</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="142">
+            <property name="name" class="String">Assign Server</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.Server</property>
+                </property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.Server</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="143">
+            <property name="name" class="String">Assign Date Created</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="Expression" serializationversion="1">
+                <property name="text" class="String">now()</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.DateCreated</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="144">
+            <property name="name" class="String">Assign Export Attachment</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">true</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.ExportAttachment</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="145">
+            <property name="name" class="String">Assign Export Body</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">false</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.ExportBody</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="146">
+            <property name="name" class="String">Assign Mark As Read</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">true</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.MarkAsRead</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="147">
+            <property name="name" class="String">Assign Move To Folder</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">Processed</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">filter.MoveToFolder</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+        </steps>
+        <blockEndStep class="BlockEndStep" id="148"/>
+        <edges class="ArrayList">
+          <object class="TransitionEdge">
+            <from idref="133"/>
+            <to idref="134"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="134"/>
+            <to idref="135"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="135"/>
+            <to idref="136"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="136"/>
+            <to idref="137"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="137"/>
+            <to idref="138"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="138"/>
+            <to idref="139"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="139"/>
+            <to idref="140"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="140"/>
+            <to idref="141"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="141"/>
+            <to idref="142"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="142"/>
+            <to idref="143"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="143"/>
+            <to idref="144"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="144"/>
+            <to idref="145"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="145"/>
+            <to idref="146"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="146"/>
+            <to idref="147"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="147"/>
+            <to idref="148"/>
+          </object>
+        </edges>
       </object>
-      <object class="Try" id="131"/>
-      <object class="Transition" serializationversion="3" id="132">
+      <object class="Transition" serializationversion="3" id="149">
         <property name="name" idref="94"/>
         <property name="stepAction" class="StoreInDatabase" serializationversion="0">
           <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
@@ -2729,187 +2950,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="3"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="End" id="133"/>
-      <object class="Transition" serializationversion="3" id="134">
-        <property name="name" class="String">Assign Id</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">1</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.Id</property>
-          </property>
-        </property>
-        <property name="elementFinders" idref="67"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="135">
-        <property name="name" class="String">Assign Name</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">test</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.Name</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="136">
-        <property name="name" class="String">Assign Description</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">test</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.Description</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="137">
-        <property name="name" class="String">Assign Subject Filter</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">test</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.SubjectFilter</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="138">
-        <property name="name" class="String">Assign Sender Filter</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">david.wri.*</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.SenderFilter</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="139">
-        <property name="name" class="String">Assign Attachment Filter</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">balance\..xt</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.AttachmentFilter</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="140">
-        <property name="name" class="String">Assign Owner</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">david.wright@kofax.com</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.Owner</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="141">
-        <property name="name" class="String">Assign Account</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">wiki@kofax.com</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.Account</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="142">
-        <property name="name" class="String">Assign Server</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-            <property name="value" class="String">kofax.com</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.Server</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
-      <object class="Transition" serializationversion="3" id="143">
-        <property name="name" class="String">Assign Date Created</property>
-        <property name="stepAction" class="AssignVariable" serializationversion="4">
-          <property name="stringExpr" class="Expression" serializationversion="1">
-            <property name="text" class="String">now()</property>
-          </property>
-          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-            <property name="name" class="String">filter.DateCreated</property>
-          </property>
-        </property>
-        <property name="elementFinders" class="ElementFinders"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
-          <null/>
-        </property>
-        <property name="enabled" idref="3"/>
-        <property name="changedProperties" class="java.util.HashSet"/>
-      </object>
+      <object class="End" id="150"/>
     </steps>
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
@@ -3086,56 +3127,16 @@ and owner='david.wright@kofax.com'
         <to idref="131"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="131"/>
+        <from idref="130"/>
         <to idref="132"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="131"/>
-        <to idref="134"/>
       </object>
       <object class="TransitionEdge">
         <from idref="132"/>
-        <to idref="133"/>
+        <to idref="149"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="134"/>
-        <to idref="135"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="135"/>
-        <to idref="136"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="136"/>
-        <to idref="137"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="137"/>
-        <to idref="138"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="138"/>
-        <to idref="139"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="139"/>
-        <to idref="140"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="140"/>
-        <to idref="141"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="141"/>
-        <to idref="142"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="142"/>
-        <to idref="143"/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="143"/>
-        <to idref="132"/>
+        <from idref="149"/>
+        <to idref="150"/>
       </object>
     </edges>
   </property>
