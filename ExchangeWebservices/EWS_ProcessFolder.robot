@@ -2435,6 +2435,31 @@ Later we download all the attachment names and check them more throughly</proper
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
       <object class="Transition" serializationversion="3" id="120">
+        <property name="name" class="String">Convert Attchement from Binary</property>
+        <property name="stepAction" class="AssignVariable" serializationversion="4">
+          <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
+            <property name="dataConverters" class="DataConverters">
+              <element class="ConvertBinaryToText">
+                <property name="attributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">Email.Attachment</property>
+                </property>
+              </element>
+            </property>
+          </property>
+          <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+            <property name="name" class="String">Email.Attachment</property>
+          </property>
+        </property>
+        <property name="elementFinders" idref="65"/>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+        <property name="comment" class="String">you will need to pick a long text variable to convert the attachement too.
+Make sure in the converter you select the default page encoding. Here it defaults to utf-8.</property>
+        <property name="enabled" idref="1"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element idref="66"/>
+        </property>
+      </object>
+      <object class="Transition" serializationversion="3" id="121">
         <property name="name" class="String">TODO. Mark as robot ignoring.</property>
         <property name="stepAction" class="DoNothing"/>
         <property name="elementFinders" idref="65"/>
@@ -2447,8 +2472,8 @@ https://stackoverflow.com/questions/21575264/search-by-category-exchange-server-
           <element idref="66"/>
         </property>
       </object>
-      <object class="End" id="121"/>
-      <object class="Transition" serializationversion="3" id="122">
+      <object class="End" id="122"/>
+      <object class="Transition" serializationversion="3" id="123">
         <property name="name" class="String">Use Office 365</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2468,7 +2493,7 @@ https://stackoverflow.com/questions/21575264/search-by-category-exchange-server-
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Transition" serializationversion="3" id="123">
+      <object class="Transition" serializationversion="3" id="124">
         <property name="name" class="String">Query Database</property>
         <property name="stepAction" class="QueryDatabase2" serializationversion="1">
           <property name="databaseName" class="kapow.robot.plugin.common.support.expression.stringexpr.DBNameValueStringExpression">
@@ -2591,8 +2616,8 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Try" id="124"/>
-      <object class="Transition" serializationversion="3" id="125">
+      <object class="Try" id="125"/>
+      <object class="Transition" serializationversion="3" id="126">
         <property name="name" class="String">Store in Database</property>
         <property name="stepAction" class="StoreInDatabase" serializationversion="0">
           <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
@@ -2607,8 +2632,8 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="End" id="126"/>
-      <object class="Transition" serializationversion="3" id="127">
+      <object class="End" id="127"/>
+      <object class="Transition" serializationversion="3" id="128">
         <property name="name" class="String">Assign Id</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2626,7 +2651,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="128">
+      <object class="Transition" serializationversion="3" id="129">
         <property name="name" class="String">Assign Name</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2644,7 +2669,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="129">
+      <object class="Transition" serializationversion="3" id="130">
         <property name="name" class="String">Assign Description</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2662,7 +2687,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="130">
+      <object class="Transition" serializationversion="3" id="131">
         <property name="name" class="String">Assign Subject Filter</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2680,7 +2705,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="131">
+      <object class="Transition" serializationversion="3" id="132">
         <property name="name" class="String">Assign Sender Filter</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2698,7 +2723,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="132">
+      <object class="Transition" serializationversion="3" id="133">
         <property name="name" class="String">Assign Attachment Filter</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2716,7 +2741,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="133">
+      <object class="Transition" serializationversion="3" id="134">
         <property name="name" class="String">Assign Owner</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2734,7 +2759,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="134">
+      <object class="Transition" serializationversion="3" id="135">
         <property name="name" class="String">Assign Account</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2752,7 +2777,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="135">
+      <object class="Transition" serializationversion="3" id="136">
         <property name="name" class="String">Assign Server</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -2770,7 +2795,7 @@ and owner='david.wright@kofax.com'
         <property name="enabled" idref="2"/>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="Transition" serializationversion="3" id="136">
+      <object class="Transition" serializationversion="3" id="137">
         <property name="name" class="String">Assign Date Created</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
@@ -2801,7 +2826,7 @@ and owner='david.wright@kofax.com'
       </object>
       <object class="TransitionEdge">
         <from idref="4"/>
-        <to idref="123"/>
+        <to idref="124"/>
       </object>
       <object class="TransitionEdge">
         <from idref="5"/>
@@ -2813,7 +2838,7 @@ and owner='david.wright@kofax.com'
       </object>
       <object class="TransitionEdge">
         <from idref="6"/>
-        <to idref="122"/>
+        <to idref="123"/>
       </object>
       <object class="TransitionEdge">
         <from idref="7"/>
@@ -2857,7 +2882,7 @@ and owner='david.wright@kofax.com'
       </object>
       <object class="TransitionEdge">
         <from idref="68"/>
-        <to idref="120"/>
+        <to idref="121"/>
       </object>
       <object class="TransitionEdge">
         <from idref="70"/>
@@ -2933,35 +2958,35 @@ and owner='david.wright@kofax.com'
       </object>
       <object class="TransitionEdge">
         <from idref="119"/>
-        <to idref="88"/>
+        <to idref="120"/>
       </object>
       <object class="TransitionEdge">
         <from idref="120"/>
-        <to idref="121"/>
+        <to idref="88"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="122"/>
-        <to idref="9"/>
+        <from idref="121"/>
+        <to idref="122"/>
       </object>
       <object class="TransitionEdge">
         <from idref="123"/>
-        <to idref="124"/>
+        <to idref="9"/>
       </object>
       <object class="TransitionEdge">
         <from idref="124"/>
         <to idref="125"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="124"/>
-        <to idref="127"/>
-      </object>
-      <object class="TransitionEdge">
         <from idref="125"/>
         <to idref="126"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="127"/>
+        <from idref="125"/>
         <to idref="128"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="126"/>
+        <to idref="127"/>
       </object>
       <object class="TransitionEdge">
         <from idref="128"/>
@@ -2997,7 +3022,11 @@ and owner='david.wright@kofax.com'
       </object>
       <object class="TransitionEdge">
         <from idref="136"/>
-        <to idref="125"/>
+        <to idref="137"/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="137"/>
+        <to idref="126"/>
       </object>
     </edges>
   </property>
