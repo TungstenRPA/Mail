@@ -1771,8 +1771,248 @@ Later we download all the attachment names and check them more throughly</proper
           </object>
         </edges>
       </object>
-      <object class="Try" id="95"/>
-      <object class="Transition" serializationversion="3" id="96">
+      <object class="Group" id="95">
+        <name class="String">EWS:Categorize Email as "Robot Prcoessed"</name>
+        <comment>
+          <null/>
+        </comment>
+        <blockBeginStep class="BlockBeginStep" id="96"/>
+        <steps class="ArrayList">
+          <object class="Transition" serializationversion="3" id="97">
+            <property name="name" idref="31"/>
+            <property name="stepAction" class="SetCurrentWindow" serializationversion="1">
+              <property name="windowReferenceProvider" class="kapow.robot.plugin.common.stepaction.windowreferenceprovider.NamedWindowReferenceProvider">
+                <property name="windowReference" class="kapow.robot.robomaker.state.window.reference.IdBasedWindowReference" serializationversion="0">
+                  <property name="windowId" class="kapow.robot.robomaker.state.VariableDataModelId">
+                    <property name="id" class="String">ews_SOAP.Request</property>
+                  </property>
+                </property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="98">
+            <property name="name" idref="20"/>
+            <property name="stepAction" class="SetTagStepAction" serializationversion="0">
+              <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews_SOAP.Request_ItemCategorize</property>
+                </property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders">
+              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                  <property name="value" class="String">.*.soap:Body.*</property>
+                </property>
+              </object>
+            </property>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="99">
+            <property name="name" class="String">Set Attribute Id</property>
+            <property name="stepAction" class="SetAttribute">
+              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">Id</property>
+              </property>
+              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.ItemId</property>
+                </property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders">
+              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                  <property name="value" class="String">.*.t:itemid</property>
+                </property>
+              </object>
+            </property>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="100">
+            <property name="name" class="String">Set Attribute ChangeKey</property>
+            <property name="stepAction" class="SetAttribute">
+              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">ChangeKey</property>
+              </property>
+              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.ItemChangeKey</property>
+                </property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders">
+              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                  <property name="value" class="String">.*.t:itemid</property>
+                </property>
+              </object>
+            </property>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="101">
+            <property name="name" class="String" id="102">Set Text</property>
+            <property name="stepAction" class="SetText">
+              <property name="text" class="kapow.robot.plugin.common.support.expression.stringexpr.MultilineValueStringExpression">
+                <property name="value" class="String">Robot Ignoring</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders">
+              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                  <property name="value" class="String">.*.t:string</property>
+                </property>
+              </object>
+            </property>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="103">
+            <property name="name" class="String">EWS:Categorize as "Robot Procesed"</property>
+            <property name="stepAction" class="CallSOAPWebService" serializationversion="1">
+              <property name="webserviceInvoker" class="kapow.robot.plugin.common.stateprocessor.callwebservice3.ManualSOAPRequestProvider">
+                <property name="webServiceURLExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
+                  <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                    <property name="name" class="String">ews.Server</property>
+                  </property>
+                </property>
+                <property name="sOAPActionExpression" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                  <property name="value" class="String">UpdateItem</property>
+                </property>
+                <property name="sOAPRequestProvider" class="kapow.robot.plugin.common.support.xml.provider.VariableValueXMLProvider" serializationversion="1">
+                  <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                    <property name="name" class="String">ews_SOAP.Request</property>
+                  </property>
+                </property>
+                <property name="sOAPVersion" class="String">SOAP 1.2</property>
+              </property>
+              <property name="browserConfigurationSpecification" class="BrowserConfigurationSpecificationWebKit" serializationversion="25">
+                <property name="credentialsProvider" class="com.kapowtech.net.UsernamePasswordCredentialsProvider">
+                  <property name="usernameExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
+                    <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                      <property name="name" class="String">ews.User</property>
+                    </property>
+                  </property>
+                  <property name="passwordExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
+                    <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                      <property name="name" class="String">ews.Password</property>
+                    </property>
+                  </property>
+                </property>
+                <property name="headerProvider" class="kapow.robot.plugin.common.support.browser2.requestheaders.ListHeaderProvider">
+                  <property name="headers" class="BeanList">
+                    <object class="kapow.robot.plugin.common.support.browser2.requestheaders.RequestHeader">
+                      <property name="header" class="kapow.robot.plugin.common.support.browser2.requestheaders.HeaderTemplateStringExpression">
+                        <property name="header" class="kapow.robot.plugin.common.support.browser2.requestheaders.HeaderBean">
+                          <property name="header" class="String">Content-Type: text/xml; charset=utf-8</property>
+                        </property>
+                      </property>
+                    </object>
+                  </property>
+                </property>
+                <property name="responseStatusCodeAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews_SOAP.StatusCode</property>
+                </property>
+                <property name="responseHeadersAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews_SOAP.Headers</property>
+                </property>
+                <property name="ignoreLoadErrors" class="Boolean">true</property>
+                <property name="ancestorProvider" class="BrowserConfigurationSpecificationAncestorProviderForStep"/>
+                <property name="changedProperties" class="java.util.HashSet">
+                  <element class="String">ignoreLoadErrors</element>
+                  <element class="String">responseHeadersAttributeName</element>
+                  <element class="String">responseStatusCodeAttributeName</element>
+                  <element class="String">headerProvider</element>
+                  <element class="String">credentialsProvider</element>
+                </property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element class="String">name</element>
+            </property>
+          </object>
+          <object class="Transition" serializationversion="3" id="104">
+            <property name="name" idref="24"/>
+            <property name="stepAction" class="ViewAsXML"/>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+        </steps>
+        <blockEndStep class="BlockEndStep" id="105"/>
+        <edges class="ArrayList">
+          <object class="TransitionEdge">
+            <from idref="96"/>
+            <to idref="97"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="97"/>
+            <to idref="98"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="98"/>
+            <to idref="99"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="99"/>
+            <to idref="100"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="100"/>
+            <to idref="101"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="101"/>
+            <to idref="103"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="103"/>
+            <to idref="104"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="104"/>
+            <to idref="105"/>
+          </object>
+        </edges>
+      </object>
+      <object class="Try" id="106"/>
+      <object class="Transition" serializationversion="3" id="107">
         <property name="name" class="String">move to folder?</property>
         <property name="stepAction" class="TestValue" serializationversion="0">
           <property name="condition" class="Expression" serializationversion="1">
@@ -1793,14 +2033,14 @@ Later we download all the attachment names and check them more throughly</proper
           <element class="String">name</element>
         </property>
       </object>
-      <object class="Group" id="97">
+      <object class="Group" id="108">
         <name class="String">EWS:Find Outbox</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="98"/>
+        <blockBeginStep class="BlockBeginStep" id="109"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="99">
+          <object class="Transition" serializationversion="3" id="110">
             <property name="name" class="String">Assign Outbox Folder Name</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
@@ -1820,7 +2060,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="100">
+          <object class="Transition" serializationversion="3" id="111">
             <property name="name" idref="31"/>
             <property name="stepAction" class="SetCurrentWindow" serializationversion="1">
               <property name="windowReferenceProvider" class="kapow.robot.plugin.common.stepaction.windowreferenceprovider.NamedWindowReferenceProvider">
@@ -1839,7 +2079,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="101">
+          <object class="Transition" serializationversion="3" id="112">
             <property name="name" idref="20"/>
             <property name="stepAction" class="SetTagStepAction" serializationversion="0">
               <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
@@ -1862,7 +2102,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="102">
+          <object class="Transition" serializationversion="3" id="113">
             <property name="name" class="String">Set Attribute Value</property>
             <property name="stepAction" class="SetAttribute">
               <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -1888,7 +2128,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="103">
+          <object class="Transition" serializationversion="3" id="114">
             <property name="name" class="String">Set Attribute Id</property>
             <property name="stepAction" class="SetAttribute">
               <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -1914,7 +2154,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="104">
+          <object class="Transition" serializationversion="3" id="115">
             <property name="name" class="String">Set Attribute ChangeKey</property>
             <property name="stepAction" class="SetAttribute">
               <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -1940,7 +2180,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="105">
+          <object class="Transition" serializationversion="3" id="116">
             <property name="name" class="String">EWS:Read Inbox</property>
             <property name="stepAction" class="CallSOAPWebService" serializationversion="1">
               <property name="webserviceInvoker" class="kapow.robot.plugin.common.stateprocessor.callwebservice3.ManualSOAPRequestProvider">
@@ -2010,7 +2250,7 @@ Later we download all the attachment names and check them more throughly</proper
               <element class="String">name</element>
             </property>
           </object>
-          <object class="Transition" serializationversion="3" id="106">
+          <object class="Transition" serializationversion="3" id="117">
             <property name="name" idref="24"/>
             <property name="stepAction" class="ViewAsXML"/>
             <property name="elementFinders" class="ElementFinders"/>
@@ -2021,7 +2261,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="107">
+          <object class="Transition" serializationversion="3" id="118">
             <property name="name" class="String">Extract Outbox Folder Id</property>
             <property name="stepAction" class="ExtractTagAttribute2" serializationversion="3">
               <property name="tagAttr" class="String">Id</property>
@@ -2043,7 +2283,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="enabled" idref="3"/>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="108">
+          <object class="Transition" serializationversion="3" id="119">
             <property name="name" class="String">Extract Outbox Folder Change Key</property>
             <property name="stepAction" class="ExtractTagAttribute2" serializationversion="3">
               <property name="tagAttr" class="String">ChangeKey</property>
@@ -2066,291 +2306,16 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="109"/>
-        <edges class="ArrayList">
-          <object class="TransitionEdge">
-            <from idref="98"/>
-            <to idref="99"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="99"/>
-            <to idref="100"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="100"/>
-            <to idref="101"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="101"/>
-            <to idref="102"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="102"/>
-            <to idref="103"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="103"/>
-            <to idref="104"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="104"/>
-            <to idref="105"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="105"/>
-            <to idref="106"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="106"/>
-            <to idref="107"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="107"/>
-            <to idref="108"/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="108"/>
-            <to idref="109"/>
-          </object>
-        </edges>
-      </object>
-      <object class="Group" id="110">
-        <name class="String">EWS:Move to Folder</name>
-        <comment>
-          <null/>
-        </comment>
-        <blockBeginStep class="BlockBeginStep" id="111"/>
-        <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="112">
-            <property name="name" idref="31"/>
-            <property name="stepAction" class="SetCurrentWindow" serializationversion="1">
-              <property name="windowReferenceProvider" class="kapow.robot.plugin.common.stepaction.windowreferenceprovider.NamedWindowReferenceProvider">
-                <property name="windowReference" class="kapow.robot.robomaker.state.window.reference.IdBasedWindowReference" serializationversion="0">
-                  <property name="windowId" class="kapow.robot.robomaker.state.VariableDataModelId">
-                    <property name="id" class="String">ews_SOAP.Request</property>
-                  </property>
-                </property>
-              </property>
-            </property>
-            <property name="elementFinders" class="ElementFinders"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="113">
-            <property name="name" idref="20"/>
-            <property name="stepAction" class="SetTagStepAction" serializationversion="0">
-              <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
-                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews_SOAP.Request_MoveItem</property>
-                </property>
-              </property>
-            </property>
-            <property name="elementFinders" class="ElementFinders">
-              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">.*.soap:Body.*</property>
-                </property>
-              </object>
-            </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="114">
-            <property name="name" class="String">Set Attribute Id</property>
-            <property name="stepAction" class="SetAttribute">
-              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                <property name="value" class="String">Id</property>
-              </property>
-              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
-                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews.ItemId</property>
-                </property>
-              </property>
-            </property>
-            <property name="elementFinders" class="ElementFinders">
-              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">.*.t:itemid</property>
-                </property>
-              </object>
-            </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="115">
-            <property name="name" class="String">Set Attribute ChangeKey</property>
-            <property name="stepAction" class="SetAttribute">
-              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                <property name="value" class="String">ChangeKey</property>
-              </property>
-              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
-                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews.ItemChangeKey</property>
-                </property>
-              </property>
-            </property>
-            <property name="elementFinders" class="ElementFinders">
-              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">.*.t:itemid</property>
-                </property>
-              </object>
-            </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="116">
-            <property name="name" class="String">Set Attribute ChangeKey</property>
-            <property name="stepAction" class="SetAttribute">
-              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                <property name="value" class="String">ChangeKey</property>
-              </property>
-              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
-                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews.Outbox_FolderChangeKey</property>
-                </property>
-              </property>
-            </property>
-            <property name="elementFinders" class="ElementFinders">
-              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">.*.t:folderid</property>
-                </property>
-              </object>
-            </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="117">
-            <property name="name" class="String">Set Attribute Id</property>
-            <property name="stepAction" class="SetAttribute">
-              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                <property name="value" class="String">Id</property>
-              </property>
-              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
-                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews.Outbox_FolderId</property>
-                </property>
-              </property>
-            </property>
-            <property name="elementFinders" class="ElementFinders">
-              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
-                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">.*.t:folderid</property>
-                </property>
-              </object>
-            </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="118">
-            <property name="name" class="String">EWS: Move to Folder</property>
-            <property name="stepAction" class="CallSOAPWebService" serializationversion="1">
-              <property name="webserviceInvoker" class="kapow.robot.plugin.common.stateprocessor.callwebservice3.ManualSOAPRequestProvider">
-                <property name="webServiceURLExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
-                  <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                    <property name="name" class="String">ews.Server</property>
-                  </property>
-                </property>
-                <property name="sOAPActionExpression" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">UpdateItem</property>
-                </property>
-                <property name="sOAPRequestProvider" class="kapow.robot.plugin.common.support.xml.provider.VariableValueXMLProvider" serializationversion="1">
-                  <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                    <property name="name" class="String">ews_SOAP.Request</property>
-                  </property>
-                </property>
-                <property name="sOAPVersion" class="String">SOAP 1.2</property>
-              </property>
-              <property name="browserConfigurationSpecification" class="BrowserConfigurationSpecificationWebKit" serializationversion="25">
-                <property name="credentialsProvider" class="com.kapowtech.net.UsernamePasswordCredentialsProvider">
-                  <property name="usernameExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
-                    <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                      <property name="name" class="String">ews.User</property>
-                    </property>
-                  </property>
-                  <property name="passwordExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
-                    <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                      <property name="name" class="String">ews.Password</property>
-                    </property>
-                  </property>
-                </property>
-                <property name="headerProvider" class="kapow.robot.plugin.common.support.browser2.requestheaders.ListHeaderProvider">
-                  <property name="headers" class="BeanList">
-                    <object class="kapow.robot.plugin.common.support.browser2.requestheaders.RequestHeader">
-                      <property name="header" class="kapow.robot.plugin.common.support.browser2.requestheaders.HeaderTemplateStringExpression">
-                        <property name="header" class="kapow.robot.plugin.common.support.browser2.requestheaders.HeaderBean">
-                          <property name="header" class="String">Content-Type: text/xml; charset=utf-8</property>
-                        </property>
-                      </property>
-                    </object>
-                  </property>
-                </property>
-                <property name="responseStatusCodeAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews_SOAP.StatusCode</property>
-                </property>
-                <property name="responseHeadersAttributeName" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews_SOAP.Headers</property>
-                </property>
-                <property name="ignoreLoadErrors" class="Boolean">true</property>
-                <property name="ancestorProvider" class="BrowserConfigurationSpecificationAncestorProviderForStep"/>
-                <property name="changedProperties" class="java.util.HashSet">
-                  <element class="String">ignoreLoadErrors</element>
-                  <element class="String">responseHeadersAttributeName</element>
-                  <element class="String">responseStatusCodeAttributeName</element>
-                  <element class="String">headerProvider</element>
-                  <element class="String">credentialsProvider</element>
-                </property>
-              </property>
-            </property>
-            <property name="elementFinders" class="ElementFinders"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet">
-              <element class="String">name</element>
-            </property>
-          </object>
-          <object class="Transition" serializationversion="3" id="119">
-            <property name="name" idref="24"/>
-            <property name="stepAction" class="ViewAsXML"/>
-            <property name="elementFinders" class="ElementFinders"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" idref="3"/>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-        </steps>
         <blockEndStep class="BlockEndStep" id="120"/>
         <edges class="ArrayList">
+          <object class="TransitionEdge">
+            <from idref="109"/>
+            <to idref="110"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="110"/>
+            <to idref="111"/>
+          </object>
           <object class="TransitionEdge">
             <from idref="111"/>
             <to idref="112"/>
@@ -2390,7 +2355,7 @@ Later we download all the attachment names and check them more throughly</proper
         </edges>
       </object>
       <object class="Group" id="121">
-        <name class="String">EWS:Categorize Email as "Robot Prcoessed"</name>
+        <name class="String">EWS:Move to Folder</name>
         <comment>
           <null/>
         </comment>
@@ -2420,7 +2385,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="stepAction" class="SetTagStepAction" serializationversion="0">
               <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
                 <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews_SOAP.Request_ItemCategorize</property>
+                  <property name="name" class="String">ews_SOAP.Request_MoveItem</property>
                 </property>
               </property>
             </property>
@@ -2491,16 +2456,47 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
           <object class="Transition" serializationversion="3" id="127">
-            <property name="name" class="String" id="128">Set Text</property>
-            <property name="stepAction" class="SetText">
-              <property name="text" class="kapow.robot.plugin.common.support.expression.stringexpr.MultilineValueStringExpression">
-                <property name="value" class="String">Robot Ignoring</property>
+            <property name="name" class="String">Set Attribute ChangeKey</property>
+            <property name="stepAction" class="SetAttribute">
+              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">ChangeKey</property>
+              </property>
+              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.Outbox_FolderChangeKey</property>
+                </property>
               </property>
             </property>
             <property name="elementFinders" class="ElementFinders">
               <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
                 <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">.*.t:string</property>
+                  <property name="value" class="String">.*.t:folderid</property>
+                </property>
+              </object>
+            </property>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" idref="3"/>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="128">
+            <property name="name" class="String">Set Attribute Id</property>
+            <property name="stepAction" class="SetAttribute">
+              <property name="attributeName" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                <property name="value" class="String">Id</property>
+              </property>
+              <property name="value" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
+                <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                  <property name="name" class="String">ews.Outbox_FolderId</property>
+                </property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders">
+              <object class="DefaultNamedElementAwareDOMElementFinder" serializationversion="4">
+                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                  <property name="value" class="String">.*.t:folderid</property>
                 </property>
               </object>
             </property>
@@ -2512,7 +2508,7 @@ Later we download all the attachment names and check them more throughly</proper
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
           <object class="Transition" serializationversion="3" id="129">
-            <property name="name" class="String">EWS:Categorize as "Robot Procesed"</property>
+            <property name="name" class="String">EWS: Move to Folder</property>
             <property name="stepAction" class="CallSOAPWebService" serializationversion="1">
               <property name="webserviceInvoker" class="kapow.robot.plugin.common.stateprocessor.callwebservice3.ManualSOAPRequestProvider">
                 <property name="webServiceURLExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
@@ -2617,6 +2613,10 @@ Later we download all the attachment names and check them more throughly</proper
           </object>
           <object class="TransitionEdge">
             <from idref="127"/>
+            <to idref="128"/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="128"/>
             <to idref="129"/>
           </object>
           <object class="TransitionEdge">
@@ -3126,7 +3126,7 @@ https://stackoverflow.com/questions/21575264/search-by-category-exchange-server-
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
           <object class="Transition" serializationversion="3" id="156">
-            <property name="name" idref="128"/>
+            <property name="name" idref="102"/>
             <property name="stepAction" class="SetText">
               <property name="text" class="kapow.robot.plugin.common.support.expression.stringexpr.MultilineValueStringExpression">
                 <property name="value" class="String">Robot Ignoring</property>
@@ -4113,22 +4113,22 @@ it is used to create a filter.</property>
       </object>
       <object class="TransitionEdge">
         <from idref="95"/>
-        <to idref="96"/>
+        <to idref="106"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="95"/>
-        <to idref="121"/>
+        <from idref="106"/>
+        <to idref="107"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="96"/>
-        <to idref="97"/>
+        <from idref="106"/>
+        <to idref="132"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="97"/>
-        <to idref="110"/>
+        <from idref="107"/>
+        <to idref="108"/>
       </object>
       <object class="TransitionEdge">
-        <from idref="110"/>
+        <from idref="108"/>
         <to idref="121"/>
       </object>
       <object class="TransitionEdge">
