@@ -7,16 +7,16 @@
       <version>10.6.0.2</version>
     </saved-by-versions>
     <referenced-types>
+      <type name="Email"/>
       <type name="ExchangeWebServices"/>
       <type name="ExchangeWebServices_SOAP"/>
-      <type name="Email"/>
     </referenced-types>
     <referenced-snippets/>
     <triggers/>
     <typed-variables>
+      <typed-variable name="Email" type-name="Email"/>
       <typed-variable name="ews" type-name="ExchangeWebServices"/>
       <typed-variable name="ews_SOAP" type-name="ExchangeWebServices_SOAP"/>
-      <typed-variable name="Email" type-name="Email"/>
     </typed-variables>
     <global-variables/>
     <parameters/>
@@ -27,29 +27,6 @@
   </prologue>
   <property name="variables" class="Variables">
     <object class="Variable" serializationversion="1">
-      <property name="name" class="String">ews</property>
-      <property name="initialAssignment" class="InitialVariableAssignment">
-        <property name="type" class="TypeReference" serializationversion="0">
-          <property name="typeName" class="String">ExchangeWebServices</property>
-        </property>
-        <property name="assignments" class="AttributeAssignments">
-          <property name="User" class="AttributeAssignment">
-            <property name="attributeValue" class="String">david.wright@kofax.com</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" class="java.lang.Class" id="0">kapow.robot.plugin.common.domain.StringAttributeType</property>
-          </property>
-        </property>
-      </property>
-    </object>
-    <object class="Variable" serializationversion="1">
-      <property name="name" class="String">ews_SOAP</property>
-      <property name="initialAssignment" class="InitialVariableAssignment">
-        <property name="type" class="TypeReference" serializationversion="0">
-          <property name="typeName" class="String">ExchangeWebServices_SOAP</property>
-        </property>
-      </property>
-    </object>
-    <object class="Variable" serializationversion="1">
       <property name="name" class="String">Email</property>
       <property name="initialAssignment" class="InitialVariableAssignment">
         <property name="type" class="TypeReference" serializationversion="0">
@@ -59,7 +36,7 @@
           <property name="AttachmentName" class="AttributeAssignment">
             <property name="attributeValue" class="String">abc.txt</property>
             <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="0"/>
+            <property name="lastKnownAttributeType" class="java.lang.Class" id="0">kapow.robot.plugin.common.domain.StringAttributeType</property>
           </property>
           <property name="Body" class="AttributeAssignment">
             <property name="attributeValue" class="String">&lt;body&gt;Hi $FirstName$,&lt;br/&gt;
@@ -67,6 +44,11 @@ How are you?
 &lt;/body&gt;</property>
             <property name="currentlyAssigned" class="Boolean">true</property>
             <property name="lastKnownAttributeType" class="java.lang.Class">kapow.robot.plugin.common.domain.TextAttributeType</property>
+          </property>
+          <property name="Recipient" class="AttributeAssignment">
+            <property name="attributeValue" class="String">david.wright@kofax.com</property>
+            <property name="currentlyAssigned" class="Boolean">true</property>
+            <property name="lastKnownAttributeType" idref="0"/>
           </property>
           <property name="Sender" class="AttributeAssignment">
             <property name="attributeValue" class="String">david.wright@kofax.com</property>
@@ -78,11 +60,22 @@ How are you?
             <property name="currentlyAssigned" class="Boolean">true</property>
             <property name="lastKnownAttributeType" idref="0"/>
           </property>
-          <property name="To" class="AttributeAssignment">
-            <property name="attributeValue" class="String">david.wright@kofax.com</property>
-            <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="0"/>
-          </property>
+        </property>
+      </property>
+    </object>
+    <object class="Variable" serializationversion="1">
+      <property name="name" class="String">ews</property>
+      <property name="initialAssignment" class="InitialVariableAssignment">
+        <property name="type" class="TypeReference" serializationversion="0">
+          <property name="typeName" class="String">ExchangeWebServices</property>
+        </property>
+      </property>
+    </object>
+    <object class="Variable" serializationversion="1">
+      <property name="name" class="String">ews_SOAP</property>
+      <property name="initialAssignment" class="InitialVariableAssignment">
+        <property name="type" class="TypeReference" serializationversion="0">
+          <property name="typeName" class="String">ExchangeWebServices_SOAP</property>
         </property>
       </property>
     </object>
@@ -114,7 +107,7 @@ How are you?
         <property name="stepAction" class="LookupPassword">
           <property name="userName" class="kapow.robot.plugin.common.support.expression.multipletype.ComplexVariableAllowedVariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">ews.User</property>
+              <property name="name" class="String">ews.UserName</property>
             </property>
           </property>
           <property name="targetSystem" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
@@ -300,7 +293,7 @@ https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services
           <property name="setContentMode" class="SetExistingTag"/>
           <property name="newContent" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
             <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-              <property name="name" class="String">Email.To</property>
+              <property name="name" class="String">Email.Recipient</property>
             </property>
           </property>
         </property>
@@ -717,7 +710,7 @@ https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services
             <property name="credentialsProvider" class="com.kapowtech.net.UsernamePasswordCredentialsProvider">
               <property name="usernameExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
                 <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                  <property name="name" class="String">ews.User</property>
+                  <property name="name" class="String">ews.UserName</property>
                 </property>
               </property>
               <property name="passwordExpression" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
@@ -808,7 +801,7 @@ https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services
         <property name="name" class="String">success log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
-            <property name="text" class="String">Email.To + ";success"</property>
+            <property name="text" class="String">Email.Recipient + ";success"</property>
           </property>
         </property>
         <property name="elementFinders" idref="38"/>
@@ -826,7 +819,7 @@ https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services
         <property name="name" class="String">fail log</property>
         <property name="stepAction" class="WriteLog2">
           <property name="expression" class="Expression" serializationversion="1">
-            <property name="text" class="String">Email.To + ";fail"</property>
+            <property name="text" class="String">Email.Recipient + ";fail"</property>
           </property>
         </property>
         <property name="elementFinders" class="ElementFinders"/>
