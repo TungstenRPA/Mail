@@ -24,7 +24,7 @@ This project contains robots that work on *Microsoft Exchange* for processing in
 ### Creating Email Robots
 * Copy and customize the robot **OpenOffice.resendlater.robot** to process particular emails.
 * Write a different robot for each classification
-* You can choose to either delete the processed email or makr it as processed so that it will be processed again.
+* You can choose to either delete the processed email or *mark as processe*d so that it will not be processed again.
 * Upload these robots
 * These robots will run many, many times per day. Most of the time they will find no emails in the first step and simply exit.
 ### Uploading Robots
