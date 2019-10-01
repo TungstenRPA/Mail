@@ -32,7 +32,7 @@ This project contains robots that work on *Microsoft Exchange* for processing in
 * Right click on **Outlook_ProcessFolder.robot** and select *Add/edit Password Access for Robot*. Do the same for **Outlook_SendEMail.robot**
 
 ### Scheduling
- * Run the robot **Outlook_ProcessFolder.robot** in the Scheduler. *At Kofax we have run this every 30 seconds for over 4 years!*
+ * Run the robot **Outlook_ProcessFolder.robot** in the Scheduler. *At Kofax we have run this every minute for over 4 years - that's over 2 million times!*
  * Add all of the other robots to the **same** schedule
  * on the **Schedule/Advanced** tab, select **Run Sequentially*.
  * right
