@@ -4,6 +4,7 @@ This project contains robots that work on *Microsoft Exchange* for processing in
 ## Microsoft Exchange
 * The Robot **Outlook_ProcessFolder.robot** uses rich filters to process all emails in an Outlook mailbox.
   * this robot needs no editing at all. All configuration that is needed is in the filters and the Password Store.
+  * this one robot can look at numerous inboxes for various people and run 100's of filters over new emails
   * this robot can look into another person's inbox or a shared inbox. The **UserName** in the filter is the login name and **Owner** is the actual owner of the inbox the robot is looking at
 * The Robot **Outlook_SendEMail.robot** builds a nicely formatted email, personalizes it and sends via Microsoft Exchange. You will see the sent email on your **Sent** Folder in Microsoft Outlook.
 
