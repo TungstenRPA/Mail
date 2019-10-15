@@ -3,8 +3,8 @@ This project contains robots that work on *Microsoft Exchange* for processing in
 
 Watch the [demo](https://www.dropbox.com/s/q0bsk8nq4sedo3d/20191001%20Kofax%20RPA%20Outlook%20InBox%20Helper.mp4?dl=0) to see this in action.
 ## Versions
-* 3.0   (Oct  1 2019) Full feature support for Microsoft Outlook
 * 3.0.1 (Oct 15 2019) Support custom folders for inboxes for Microsoft Outlook (make sure folder name is unique)
+* 3.0 (Oct 1 2019) Full feature support for Microsoft Outlook
 
 ## Microsoft Exchange
 * The Robot **Outlook_ProcessFolder.robot** uses rich filters to process all emails in an Outlook mailbox.
