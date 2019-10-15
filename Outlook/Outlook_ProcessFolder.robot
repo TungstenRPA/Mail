@@ -334,48 +334,8 @@ https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services
                         </property>
                       </element>
                       <element class="ConvertToLowerCase"/>
-                      <element class="ConvertUsingList">
-                        <property name="mapString" class="String">calendar=true
-contacts=true
-deleteditems=true
-drafts=true
-inbox=true
-journal=true
-notes=true
-outbox=true
-sentitems=true
-tasks=true
-msgfolderroot=true
-root=true
-junkemail=true
-searchfolders=true
-voicemail=true
-recoverableitemsroot=true
-recoverableitemsdeletions=true
-recoverableitemsversions=true
-recoverableitemspurges=true
-archiveroot=true
-archivemsgfolderroot=true
-archivedeleteditems=true
-archiveinbox=true
-archiverecoverableitemsroot=true
-archiverecoverableitemsdeletions=true
-archiverecoverableitemsversions=true
-archiverecoverableitemspurges=true
-syncissues=true
-conflicts=true
-localfailures=true
-serverfailures=true
-recipientcache=true
-quickcontacts=true
-conversationhistory=true
-adminauditlogs=true
-todosearch=true
-mycontacts=true
-directory=true
-imcontactlist=true
-peopleconnect=true
-favorites=true</property>
+                      <element class="EvaluateExpression" serializationversion="0">
+                        <property name="expression" class="String">contains("\n"+ews_SOAP.DistinguishedFolderIds+"\n","\n"+INPUT+"\n")</property>
                       </element>
                     </property>
                   </property>
@@ -541,48 +501,8 @@ favorites=true</property>
                         </property>
                       </element>
                       <element class="ConvertToLowerCase"/>
-                      <element class="ConvertUsingList">
-                        <property name="mapString" class="String">calendar=true
-contacts=true
-deleteditems=true
-drafts=true
-inbox=true
-journal=true
-notes=true
-outbox=true
-sentitems=true
-tasks=true
-msgfolderroot=true
-root=true
-junkemail=true
-searchfolders=true
-voicemail=true
-recoverableitemsroot=true
-recoverableitemsdeletions=true
-recoverableitemsversions=true
-recoverableitemspurges=true
-archiveroot=true
-archivemsgfolderroot=true
-archivedeleteditems=true
-archiveinbox=true
-archiverecoverableitemsroot=true
-archiverecoverableitemsdeletions=true
-archiverecoverableitemsversions=true
-archiverecoverableitemspurges=true
-syncissues=true
-conflicts=true
-localfailures=true
-serverfailures=true
-recipientcache=true
-quickcontacts=true
-conversationhistory=true
-adminauditlogs=true
-todosearch=true
-mycontacts=true
-directory=true
-imcontactlist=true
-peopleconnect=true
-favorites=true</property>
+                      <element class="EvaluateExpression" serializationversion="0">
+                        <property name="expression" class="String">contains("\n"+ews_SOAP.DistinguishedFolderIds+"\n","\n"+INPUT+"\n")</property>
                       </element>
                     </property>
                   </property>
