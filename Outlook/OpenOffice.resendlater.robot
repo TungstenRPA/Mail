@@ -2,7 +2,7 @@
 <object class="Robot" serializationversion="2">
   <prologue>
     <saved-by-versions>
-      <version>10.6.0.2</version>
+      <version>10.5.0.0</version>
     </saved-by-versions>
     <referenced-types>
       <type name="Email"/>
