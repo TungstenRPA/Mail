@@ -4,7 +4,6 @@
     <saved-by-versions>
       <version>10.4.0.0</version>
       <version>10.5.0.0</version>
-      <version>10.6.0.2</version>
     </saved-by-versions>
     <referenced-types>
       <type name="Filter"/>
