@@ -4682,7 +4682,7 @@ it is used to create a filter.</property>
                           <object class="kapow.robot.plugin.common.stringprocessor.datefetcher.PatternBasedDateFormatSpecification"/>
                           <object class="kapow.robot.plugin.common.stringprocessor.datefetcher.PatternBasedDateFormatSpecification">
                             <property name="pattern" class="kapow.robot.plugin.common.support.expression.stringexpr.DateExtractorPatternValueStringExpression">
-                              <property name="value" class="String">dd/MM/yy hh:mm a</property>
+                              <property name="value" class="String">dd/MM/yy hh:mm</property>
                             </property>
                           </object>
                         </property>
