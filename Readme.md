@@ -7,6 +7,7 @@ This project contains robots that work on *Microsoft Exchange* for processing in
 
 [All Downloads](https://github.com/KofaxRPA/Mail/releases)
 ## Versions
+* 3.0.2 (Feb 2020) Corrected date parsing.
 * 3.0.1 (Oct 15 2019) Support custom folders for inboxes for Microsoft Outlook (make sure folder name is unique)
 * 3.0 (Oct 1 2019) Full feature support for Microsoft Outlook
 
