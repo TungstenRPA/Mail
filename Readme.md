@@ -1,7 +1,11 @@
 # Email Helper Robots
 This project contains robots that work on *Microsoft Exchange* for processing incoming emails and for sending emails.
 
-Watch the [demo](https://www.dropbox.com/s/q0bsk8nq4sedo3d/20191001%20Kofax%20RPA%20Outlook%20InBox%20Helper.mp4?dl=0) to see this in action. [download here](https://github.com/KofaxRPA/Mail/releases)
+[**Watch the demo**](https://www.dropbox.com/s/q0bsk8nq4sedo3d/20191001%20Kofax%20RPA%20Outlook%20InBox%20Helper.mp4?dl=0) to see this in action. 
+
+[Download Latest Version (3.0.2)](https://github.com/KofaxRPA/Mail/archive/3.0.2.zip) 
+
+[All Downloads](https://github.com/KofaxRPA/Mail/releases)
 ## Versions
 * 3.0.1 (Oct 15 2019) Support custom folders for inboxes for Microsoft Outlook (make sure folder name is unique)
 * 3.0 (Oct 1 2019) Full feature support for Microsoft Outlook
