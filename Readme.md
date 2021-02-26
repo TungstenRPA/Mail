@@ -1,6 +1,6 @@
 # Email Helper Robots
 
-> _**Kofax RPA 11.1 has [native support for Microsoft 365, GMail and IMAP](https://github.com/KofaxRPA/RPA-11.1/blob/main/Enhanced%20Email%20Integration.md#enhanced-email-integration-in-kofax-rpa-111) , moving this repository closer to obsolesence.**_
+> _**Kofax RPA 11.1 has [native support for reading emails from Microsoft 365, GMail and IMAP](https://github.com/KofaxRPA/RPA-11.1/blob/main/Enhanced%20Email%20Integration.md#enhanced-email-integration-in-kofax-rpa-111) , moving this repository closer to obsolesence.**_
 
 This project contains robots that work on *Microsoft Exchange* for processing incoming emails and for sending emails.
 
