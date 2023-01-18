@@ -2,10 +2,20 @@
 Kofax RPA 11.4 supports OAuth for authentication with Microsoft Office 365 email, using triggers in the Management Console.  
 You cannot use this to browse emails in the "Email" Step in robots.  
 This guide was built in January 2023.
-## download and install Ngrok
-*This will give your Kofax RPA management console temporary access from the internet via https. This is necessary to create the OAuth token. As soon as you have the token you can delete this tunnel.*
-* type **ngrok.exe http 50080**
-
+## Add HTTPS to Management Console
+*In order to authenticate with OAuth, your Management Console needs a public IP address. You only need this for the authentication process. Once you have the OAuth token you can disable public access.*  
+*Download free ngrok to give your Management Console a temporary public IP address with https.*  
+* Make a free account at https://ngrok.com
+* Download and unzip free ngrok from https://ngrok.com/download
+* Open a Windows command line and change to the folder where you unzipped ngrok.  
+![image](https://user-images.githubusercontent.com/47416964/208402679-2012336c-e891-4e26-a887-0d93ee01ef71.png)
+* Copy the command from ngrok's website and paste it into the command window to connect your ngork account to your machine.
+![image](https://user-images.githubusercontent.com/47416964/208402282-40f252a6-02e7-4942-a913-ddd020280906.png)  
+![image](https://user-images.githubusercontent.com/47416964/208402864-a84ac121-5284-4493-ba5b-6db199485c5f.png)
+* Give Management Console a public IP address by typing **ngrok http 50080**  
+![image](https://user-images.githubusercontent.com/47416964/208403507-c94911e1-4e82-4d78-bce2-cc676b3f8639.png)
+* Open your Management Console in a new browser window using this IP address. This is VERY important to authenticate with OAuth.
+![image](https://user-images.githubusercontent.com/47416964/208403660-8c82e9c0-0031-4920-98ed-3912f29fee14.png)
 
 ## Configure Microsoft Azure
 *this guide follows [this article](https://learn.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth) by Microsoft*.
