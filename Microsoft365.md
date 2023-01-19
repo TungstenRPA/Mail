@@ -37,7 +37,7 @@ This guide was built in January 2023.
 * Click on **Repository/OAuth**.
 * Click **+** on the **Application** tab.
 * Set name to **Ofice 365**, provider to **Microsoft Azure AD 2.0**.
-* Paste the **Secret Value** into **consumer secret** and **Secret ID** into **Consumer Key**.
+* Paste the **Secret Value** into **consumer secret** and **Application (Client) ID** into **Consumer Key**.
 * Set the scope to **https://outlook.office.com/IMAP.AccessAsUser.All offline_access**.
 * Type anything for the commit message and click **Ok**.
 ## Add an OAuth user in Kofax RPA
@@ -47,3 +47,7 @@ This guide was built in January 2023.
 * The tenant is the **Directory (Client) ID** from your [Registered Apps in Azure](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 * Click **Next**.
 * Click **Authorization link**.
+* Sign in at Microsoft and approve the authentication.
+* Click **Close**.
+* Management Console will show you the tokens. You do not need these as your robots will not login. You are using Mail Triggers in MC and your robot will be handling an eml file.
+* 
