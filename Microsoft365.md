@@ -16,10 +16,10 @@ This guide was built in January 2023.
 * Click **Add a certificate or secret** at **Client credentials**.
 * Click **+ New client secret**.
 * Set description to **KofaxRPA**.
-* Select an expiry time of your choice from 3 months to 24 months. 
+* Select an expiry time for the Refresh Token from 3 months to 24 months. *You will need to manually refresh OAuth in Management Console before this expires!*.
 * Click **Add**
-* copy the **secret value** as you won't see it again. Copy also the **Secret ID**. You will need to paste both into the Management Console.
-* 
+* copy the **secret value** as you won't see it again. Kofax RPA needs it as the **consumer secret**.
+
 ## Create an OAuth Application for Microsoft Azure AD 2.0 in Kofax RPA 
 * Open your Management console wiht the ngrok URI. *This is very important. You cannot use **localhost**.*  
 * Click on **Repository/OAuth**.
